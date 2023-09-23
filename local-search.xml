@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Cartesian_product</title>
+    <link href="/2023/09/23/Cartesian-product/"/>
+    <url>/2023/09/23/Cartesian-product/</url>
+    
+    <content type="html"><![CDATA[<p>如果表1有m行a列，表2有n行b列，<strong>两表无条件连接时会将两表里所有行两两组合到一起</strong>，<br>所形成的表就有m*n行，a+b列。如果表1或表2的记录数很多时，连接后会形成一张非常大的表，<br>在这种大表里查询效率特别低，所以在数据库查询时，应尽量避免笛卡尔积的出现。</p><p>首先问个问题，常见的左连接查询，是不是笛卡尔积。<br>换个方式问，左连接中以左表为准，左表有m条记录，连接后的结果集是不是一定能得到m条记录？<br>答案是不一定，也就是说，左连接查询可能会产生笛卡尔积。</p><p>先附上结论：<br>连接查询时，当连接on条件是非唯一字段时，会出现笛卡尔积(局部笛卡尔积)；<br>当连接on条件是唯一字段时，则不会出现笛卡尔积。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>sql</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>sql</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Based by github and hexo to build the test blog</title>
     <link href="/2023/09/23/my-blog-build-remark/"/>
     <url>/2023/09/23/my-blog-build-remark/</url>
