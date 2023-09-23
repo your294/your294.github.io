@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>create_procedure</title>
+    <link href="/2023/09/23/create-procedure/"/>
+    <url>/2023/09/23/create-procedure/</url>
+    
+    <content type="html"><![CDATA[<h2 id="create-procedure"><a href="#create-procedure" class="headerlink" title="create_procedure"></a>create_procedure</h2><p>PS: <strong>由于mysql默认把; 作为语句结束符, 所以使用delimiter 语句来更改结束符</strong><br>example_code</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CALL</span> productpricing(<span class="hljs-variable">@pricelow</span>,<br>                    <span class="hljs-variable">@pricehigh</span>,<br>                    <span class="hljs-variable">@priceaverage</span>);<br></code></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 修改结束符为;;</span><br>delimiter ;;<br><br><span class="hljs-comment">-- 中间是定义存储过程(view)</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">PROCEDURE</span> productpricing()<br><span class="hljs-keyword">BEGIN</span><br>   <span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">Avg</span>(prod_price) <span class="hljs-keyword">AS</span> priceaverage<br>   <span class="hljs-keyword">FROM</span> products;<br><span class="hljs-keyword">END</span>;;<br><br><span class="hljs-comment">-- 恢复结束符为;</span><br>delimiter ;<br></code></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">--             taxable = 0 if not taxable, 1 if taxable</span><br><span class="hljs-comment">--             ototal = order total variable</span><br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">PROCEDURE</span> ordertotal(<br>   <span class="hljs-keyword">IN</span> onumber <span class="hljs-type">INT</span>,<br>   <span class="hljs-keyword">IN</span> taxable <span class="hljs-type">BOOLEAN</span>,<br>   <span class="hljs-keyword">OUT</span> ototal <span class="hljs-type">DECIMAL</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>)<br>) COMMENT <span class="hljs-string">&#x27;Obtain order total, optionally adding tax&#x27;</span><br><span class="hljs-keyword">BEGIN</span><br><br>   <span class="hljs-comment">-- Declare variable for total</span><br>   <span class="hljs-keyword">DECLARE</span> total <span class="hljs-type">DECIMAL</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>);<br>   <span class="hljs-comment">-- Declare tax percentage</span><br>   <span class="hljs-keyword">DECLARE</span> taxrate <span class="hljs-type">INT</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">6</span>;<br><br>   <span class="hljs-comment">-- Get the order total</span><br>   <span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">Sum</span>(item_price<span class="hljs-operator">*</span>quantity)<br>   <span class="hljs-keyword">FROM</span> orderitems<br>   <span class="hljs-keyword">WHERE</span> order_num <span class="hljs-operator">=</span> onumber<br>   <span class="hljs-keyword">INTO</span> total;<br><br>   <span class="hljs-comment">-- Is this taxable?</span><br>   IF taxable <span class="hljs-keyword">THEN</span><br>      <span class="hljs-comment">-- Yes, so add taxrate to the total</span><br>      <span class="hljs-keyword">SELECT</span> total<span class="hljs-operator">+</span>(total<span class="hljs-operator">/</span><span class="hljs-number">100</span><span class="hljs-operator">*</span>taxrate) <span class="hljs-keyword">INTO</span> total;<br>   <span class="hljs-keyword">END</span> IF;<br><br>   <span class="hljs-comment">-- And finally, save to out variable</span><br>   <span class="hljs-keyword">SELECT</span> total <span class="hljs-keyword">INTO</span> ototal;<br><br><span class="hljs-keyword">END</span>;<br></code></pre></td></tr></table></figure><p>分析</p><p>此存储过程有很大的变动。首先，增加了注释（前面放置–）。在存储过程复杂性增加时，这样做特别重要。添加了另外一个参数taxable，它是一个布尔值（如果要增加税则为真，否则为假）。在存储过程体中，用DECLARE语句定义了两个局部变量。DECLARE要求指定变量名和数据类型，它也支持可选的默认值（这个例子中的taxrate的默认被设置为6%）。SELECT语句已经改变，因此其结果存储到total（局部变量）而不是ototal。IF语句检查taxable是否为真，如果为真，则用另一SELECT语句增加营业税到局部变量total。最后，用另一SELECT语句将total（它增加或许不增加营业税）保存到ototal。</p><p><strong>COMMENT关键字 本例子中的存储过程在CREATE PROCEDURE语句中包含了一个COMMENT值。它不是必需的，但如果给出，将在SHOW PROCEDURE STATUS的结果中显示。</strong></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>sql</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>sql</tag>
+      
+      <tag>procedure</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Cartesian_product</title>
     <link href="/2023/09/23/Cartesian-product/"/>
     <url>/2023/09/23/Cartesian-product/</url>
@@ -35,6 +62,12 @@
     
     <content type="html"><![CDATA[<img src="/2023/09/23/my-blog-build-remark/order_crossover.png" class="" title="the pif for test">]]></content>
     
+    
+    <categories>
+      
+      <category>tutorial for blog</category>
+      
+    </categories>
     
     
     <tags>
