@@ -16,23 +16,24 @@
   <meta name="author" content="Your294">
   <meta name="keywords" content="os,cpp,Java,sql">
   
-    <meta name="description" content="where and having difference12345在查询sql的过程中, 可以先考虑过滤行, 在分组进行过滤,而如果有联结的情况, 先根据联结条件, 将几个表列组合起来如果没有联结条件, A表m行, B表n行, 总共生成m*n行内容 having where diff除了能用GROUP BY分组数据外，MySQL还允许过滤分组，规定包括哪些分组，排除哪些分组。例如，可能想要列出至少有">
+    <meta name="description" content="use tarjan to cal 割点lc上存在类似题目https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;critical-connections-in-a-network&#x2F; 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758">
 <meta property="og:type" content="article">
-<meta property="og:title" content="where_having_diff.md">
-<meta property="og:url" content="http://example.com/2023/09/26/where-having-diff-md/index.html">
+<meta property="og:title" content="tarjan.md">
+<meta property="og:url" content="http://example.com/2023/09/26/tarjan-md/index.html">
 <meta property="og:site_name" content="Your294_Blog">
-<meta property="og:description" content="where and having difference12345在查询sql的过程中, 可以先考虑过滤行, 在分组进行过滤,而如果有联结的情况, 先根据联结条件, 将几个表列组合起来如果没有联结条件, A表m行, B表n行, 总共生成m*n行内容 having where diff除了能用GROUP BY分组数据外，MySQL还允许过滤分组，规定包括哪些分组，排除哪些分组。例如，可能想要列出至少有">
+<meta property="og:description" content="use tarjan to cal 割点lc上存在类似题目https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;critical-connections-in-a-network&#x2F; 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-09-26T01:57:21.000Z">
-<meta property="article:modified_time" content="2023-09-26T02:02:29.841Z">
+<meta property="article:published_time" content="2023-09-26T02:13:59.000Z">
+<meta property="article:modified_time" content="2023-09-26T02:14:36.586Z">
 <meta property="article:author" content="Your294">
-<meta property="article:tag" content="sql">
-<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="graph">
+<meta property="article:tag" content="tarjan">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>where_having_diff.md - Your294_Blog</title>
+  <title>tarjan.md - Your294_Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="where_having_diff.md"></span>
+            <span id="subtitle" data-typed-text="tarjan.md"></span>
           
         </div>
 
@@ -209,7 +210,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-26 09:57" pubdate>
+        <time datetime="2023-09-26 10:13" pubdate>
           September 26, 2023 am
         </time>
       </span>
@@ -221,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          689 words
+          1.8k words
         
       </span>
     
@@ -232,7 +233,7 @@
         
         
         
-          6 mins
+          15 mins
         
       </span>
     
@@ -269,18 +270,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">where_having_diff.md</h1>
+            <h1 id="seo-header">tarjan.md</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="where-and-having-difference"><a href="#where-and-having-difference" class="headerlink" title="where and having difference"></a>where and having difference</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">在查询sql的过程中, <br>可以先考虑过滤行, <br>在分组进行过滤,<br>而如果有联结的情况, 先根据联结条件, 将几个表列组合起来<br>如果没有联结条件, A表m行, B表n行, 总共生成m<span class="hljs-emphasis">*n行内容</span><br></code></pre></td></tr></table></figure>
-<p><strong>having where diff</strong><br>除了能用GROUP BY分组数据外，MySQL还允许过滤分组，规定包括哪些分组，排除哪些分组。例如，可能想要列出至少有两个订单的所有顾客。为得出这种数据，必须基于完整的分组而不是个别的行进行过滤。</p>
-<p>我们已经看到了WHERE子句的作用（第6章中引入）。但是，在这个例子中WHERE不能完成任务，因为WHERE过滤指定的是行而不是分组。事实上，WHERE没有分组的概念。</p>
-<p>那么，不使用WHERE使用什么呢？MySQL为此目的提供了另外的子句，那就是HAVING子句。HAVING非常类似于WHERE。事实上，目前为止所学过的所有类型的WHERE子句都可以用HAVING来替代。唯一的差别是WHERE过滤行，而HAVING过滤分组。</p>
-<p><strong>where用于过滤行</strong><br><strong>having用于过滤分组</strong></p>
-<p>example code:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> vend_id, <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">AS</span> num_prods<br><span class="hljs-keyword">FROM</span> products<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> vend_id<br><span class="hljs-keyword">HAVING</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-operator">&gt;=</span> <span class="hljs-number">2</span>;<br><br><span class="hljs-operator">+</span><span class="hljs-comment">---------+-----------+</span><br><span class="hljs-operator">|</span> vend_id <span class="hljs-operator">|</span> num_prods <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">---------+-----------+</span><br><span class="hljs-operator">|</span>    <span class="hljs-number">1001</span> <span class="hljs-operator">|</span>         <span class="hljs-number">3</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>    <span class="hljs-number">1002</span> <span class="hljs-operator">|</span>         <span class="hljs-number">2</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>    <span class="hljs-number">1003</span> <span class="hljs-operator">|</span>         <span class="hljs-number">7</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>    <span class="hljs-number">1005</span> <span class="hljs-operator">|</span>         <span class="hljs-number">2</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">---------+-----------+</span><br></code></pre></td></tr></table></figure>
+                <h2 id="use-tarjan-to-cal-割点"><a href="#use-tarjan-to-cal-割点" class="headerlink" title="use tarjan to cal 割点"></a>use tarjan to cal 割点</h2><p><strong>lc上存在类似题目</strong><br><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/critical-connections-in-a-network/">https://leetcode.cn/problems/critical-connections-in-a-network/</a></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span>, <span class="hljs-type">Tuple</span><br> <br> <br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">Trajan算法求无向图的桥</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br> <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Tarjan</span>:<br>    <span class="hljs-comment"># 求无向连通图的桥</span><br><span class="hljs-meta">    @staticmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">getCuttingPointAndCuttingEdge</span>(<span class="hljs-params">edges: <span class="hljs-type">List</span>[<span class="hljs-type">Tuple</span>]</span>):<br>        link, dfn, low = &#123;&#125;, &#123;&#125;, &#123;&#125;<span class="hljs-comment"># link为字典邻接表</span><br>        global_time = [<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> a, b <span class="hljs-keyword">in</span> edges:<br>            <span class="hljs-keyword">if</span> a <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> link:<br>                link[a] = []<br>            <span class="hljs-keyword">if</span> b <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> link:<br>                link[b] = []<br>            link[a].append(b)<span class="hljs-comment">#无向图</span><br>            link[b].append(a)<span class="hljs-comment">#无向图</span><br>            dfn[a], dfn[b] = <span class="hljs-number">0x7fffffff</span>, <span class="hljs-number">0x7fffffff</span><br>            low[a], low[b] = <span class="hljs-number">0x7fffffff</span>, <span class="hljs-number">0x7fffffff</span><br> <br> <br>        cutting_points, cutting_edges = [], []<br> <br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">cur, prev, root</span>):<br>            global_time[<span class="hljs-number">0</span>] += <span class="hljs-number">1</span><br>            <span class="hljs-comment"># dfn 只有当前时间戳可以更新</span><br>            <span class="hljs-comment"># low 记录的是可以到达的祖先节点的更小的时间戳(前提是可以通过非搜索树的路径)</span><br>            dfn[cur], low[cur] = global_time[<span class="hljs-number">0</span>], global_time[<span class="hljs-number">0</span>]<br> <br>            children_cnt = <span class="hljs-number">0</span><br>            flag = <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">for</span> <span class="hljs-built_in">next</span> <span class="hljs-keyword">in</span> link[cur]:<br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">next</span> != prev:<br>                    <span class="hljs-comment"># 未访问过先访问他</span><br>                    <span class="hljs-keyword">if</span> dfn[<span class="hljs-built_in">next</span>] == <span class="hljs-number">0x7fffffff</span>:<br>                        <span class="hljs-comment"># 记录儿子节点数量</span><br>                        children_cnt += <span class="hljs-number">1</span><br>                        <span class="hljs-comment"># 先把dfn 数组填满</span><br>                        dfs(<span class="hljs-built_in">next</span>, cur, root)<br>                        <span class="hljs-comment"># 不是根且无法跨越他回到祖先</span><br>                        <span class="hljs-keyword">if</span> cur != root <span class="hljs-keyword">and</span> low[<span class="hljs-built_in">next</span>] &gt;= dfn[cur]:<br>                            flag = <span class="hljs-literal">True</span><br>                        <span class="hljs-comment"># 儿子可以到达的, 父亲一定可以到达</span><br>                        low[cur] = <span class="hljs-built_in">min</span>(low[cur], low[<span class="hljs-built_in">next</span>])<br>                        <span class="hljs-comment"># 是否是割边</span><br>                        <span class="hljs-keyword">if</span> low[<span class="hljs-built_in">next</span>] &gt; dfn[cur]:<br>                            cutting_edges.append([cur, <span class="hljs-built_in">next</span>] <span class="hljs-keyword">if</span> cur &lt; <span class="hljs-built_in">next</span> <span class="hljs-keyword">else</span> [<span class="hljs-built_in">next</span>, cur])<br>                    <span class="hljs-keyword">else</span>:<br>                        low[cur] = <span class="hljs-built_in">min</span>(low[cur], dfn[<span class="hljs-built_in">next</span>])<br>            <span class="hljs-comment"># 如果是根节点, 只需要有2棵子树就说明去掉他图不连通</span><br>            <span class="hljs-comment"># 否则: flag == True</span><br>            <span class="hljs-keyword">if</span> flag <span class="hljs-keyword">or</span> (cur == root <span class="hljs-keyword">and</span> children_cnt &gt;= <span class="hljs-number">2</span>):<br>                cutting_points.append(cur)<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;points: &quot;</span>, cutting_points)<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;edges: &quot;</span>, cutting_edges)<br> <br>        dfs(edges[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>], <span class="hljs-literal">None</span>, edges[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>])<br>        <span class="hljs-keyword">return</span> cutting_points, cutting_edges<br> <br> <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">criticalConnections</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, connections: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        edges = [(a, b) <span class="hljs-keyword">for</span> a, b <span class="hljs-keyword">in</span> connections]<br>        cutting_dots, cutting_edges = Tarjan.getCuttingPointAndCuttingEdge(edges)<br>        <span class="hljs-keyword">return</span> [[a, b] <span class="hljs-keyword">for</span> a, b <span class="hljs-keyword">in</span> cutting_edges]<br> <br> <br>connections = [[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">3</span>]]<br>n = <span class="hljs-number">4</span><br>s = Solution()<br>result = s.criticalConnections(n,connections)<br><span class="hljs-built_in">print</span>(result)<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -299,7 +295,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/sql/" class="category-chain-item">sql</a>
+  <a href="/categories/algorithm/" class="category-chain-item">algorithm</a>
   
   
 
@@ -314,9 +310,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/sql/" class="print-no-link">#sql</a>
+        <a href="/tags/algorithm/" class="print-no-link">#algorithm</a>
       
-        <a href="/tags/mysql/" class="print-no-link">#mysql</a>
+        <a href="/tags/graph/" class="print-no-link">#graph</a>
+      
+        <a href="/tags/tarjan/" class="print-no-link">#tarjan</a>
       
     </div>
   
@@ -328,8 +326,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>where_having_diff.md</div>
-      <div>http://example.com/2023/09/26/where-having-diff-md/</div>
+      <div>tarjan.md</div>
+      <div>http://example.com/2023/09/26/tarjan-md/</div>
     </div>
     <div class="license-meta">
       
@@ -373,18 +371,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/26/tarjan-md/" title="tarjan.md">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">tarjan.md</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/26/the-method-use-hexo-md/" title="the_method_use_hexo.md">
-                        <span class="hidden-mobile">the_method_use_hexo.md</span>
+                      <a href="/2023/09/26/where-having-diff-md/" title="where_having_diff.md">
+                        <span class="hidden-mobile">where_having_diff.md</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
