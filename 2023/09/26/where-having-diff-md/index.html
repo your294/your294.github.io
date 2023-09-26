@@ -16,24 +16,23 @@
   <meta name="author" content="Your294">
   <meta name="keywords" content="os,cpp,Java,sql">
   
-    <meta name="description" content="How to use hexo to generate article1234567891011121314# create a md document in the _posts dirhexo new post your_article_name.md# after you edit all the document# you need to generate the article html">
+    <meta name="description" content="where and having difference12345在查询sql的过程中, 可以先考虑过滤行, 在分组进行过滤,而如果有联结的情况, 先根据联结条件, 将几个表列组合起来如果没有联结条件, A表m行, B表n行, 总共生成m*n行内容 having where diff除了能用GROUP BY分组数据外，MySQL还允许过滤分组，规定包括哪些分组，排除哪些分组。例如，可能想要列出至少有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="the_method_use_hexo.md">
-<meta property="og:url" content="http://example.com/2023/09/26/the-method-use-hexo-md/index.html">
+<meta property="og:title" content="where_having_diff.md">
+<meta property="og:url" content="http://example.com/2023/09/26/where-having-diff-md/index.html">
 <meta property="og:site_name" content="Your294_Blog">
-<meta property="og:description" content="How to use hexo to generate article1234567891011121314# create a md document in the _posts dirhexo new post your_article_name.md# after you edit all the document# you need to generate the article html">
+<meta property="og:description" content="where and having difference12345在查询sql的过程中, 可以先考虑过滤行, 在分组进行过滤,而如果有联结的情况, 先根据联结条件, 将几个表列组合起来如果没有联结条件, A表m行, B表n行, 总共生成m*n行内容 having where diff除了能用GROUP BY分组数据外，MySQL还允许过滤分组，规定包括哪些分组，排除哪些分组。例如，可能想要列出至少有">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-09-26T01:33:32.000Z">
-<meta property="article:modified_time" content="2023-09-26T01:38:00.609Z">
+<meta property="article:published_time" content="2023-09-26T01:57:21.000Z">
+<meta property="article:modified_time" content="2023-09-26T02:01:07.698Z">
 <meta property="article:author" content="Your294">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="generate article">
-<meta property="article:tag" content="deploy article">
+<meta property="article:tag" content="sql">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>the_method_use_hexo.md - Your294_Blog</title>
+  <title>where_having_diff.md - Your294_Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="the_method_use_hexo.md"></span>
+            <span id="subtitle" data-typed-text="where_having_diff.md"></span>
           
         </div>
 
@@ -210,7 +209,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-26 09:33" pubdate>
+        <time datetime="2023-09-26 09:57" pubdate>
           September 26, 2023 am
         </time>
       </span>
@@ -222,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          279 words
+          689 words
         
       </span>
     
@@ -233,7 +232,7 @@
         
         
         
-          3 mins
+          6 mins
         
       </span>
     
@@ -270,12 +269,18 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">the_method_use_hexo.md</h1>
+            <h1 id="seo-header">where_having_diff.md</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="How-to-use-hexo-to-generate-article"><a href="#How-to-use-hexo-to-generate-article" class="headerlink" title="How to use hexo to generate article"></a>How to use hexo to generate article</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">create a md document <span class="hljs-keyword">in</span> the _posts <span class="hljs-built_in">dir</span></span><br>hexo new post your_article_name.md<br><span class="hljs-meta prompt_"># </span><span class="language-bash">after you edit all the document</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">you need to generate the article html</span> <br>hexo g<br><span class="hljs-meta prompt_"># </span><span class="language-bash">or</span><br>hexo generate<br><span class="hljs-meta prompt_"># </span><span class="language-bash">use this order</span><br>hexo s<br><span class="hljs-meta prompt_"># </span><span class="language-bash">or</span><br>hexo server<br><span class="hljs-meta prompt_"># </span><span class="language-bash">start a <span class="hljs-built_in">local</span> server see the result</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">deploy to the github</span><br>hexo deploy<br></code></pre></td></tr></table></figure>
+                <h2 id="where-and-having-difference"><a href="#where-and-having-difference" class="headerlink" title="where and having difference"></a>where and having difference</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">在查询sql的过程中, <br>可以先考虑过滤行, <br>在分组进行过滤,<br>而如果有联结的情况, 先根据联结条件, 将几个表列组合起来<br>如果没有联结条件, A表m行, B表n行, 总共生成m<span class="hljs-emphasis">*n行内容</span><br></code></pre></td></tr></table></figure>
+<p><strong>having where diff</strong><br>除了能用GROUP BY分组数据外，MySQL还允许过滤分组，规定包括哪些分组，排除哪些分组。例如，可能想要列出至少有两个订单的所有顾客。为得出这种数据，必须基于完整的分组而不是个别的行进行过滤。</p>
+<p>我们已经看到了WHERE子句的作用（第6章中引入）。但是，在这个例子中WHERE不能完成任务，因为WHERE过滤指定的是行而不是分组。事实上，WHERE没有分组的概念。</p>
+<p>那么，不使用WHERE使用什么呢？MySQL为此目的提供了另外的子句，那就是HAVING子句。HAVING非常类似于WHERE。事实上，目前为止所学过的所有类型的WHERE子句都可以用HAVING来替代。唯一的差别是WHERE过滤行，而HAVING过滤分组。</p>
+<p><strong>where用于过滤行</strong><br><strong>having用于过滤分组</strong></p>
+<p>example code:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> vend_id, <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">AS</span> num_prods<br><span class="hljs-keyword">FROM</span> products<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> vend_id<br><span class="hljs-keyword">HAVING</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-operator">&gt;=</span> <span class="hljs-number">2</span>;<br><br><span class="hljs-operator">+</span><span class="hljs-comment">---------+-----------+</span><br><span class="hljs-operator">|</span> vend_id <span class="hljs-operator">|</span> num_prods <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">---------+-----------+</span><br><span class="hljs-operator">|</span>    <span class="hljs-number">1001</span> <span class="hljs-operator">|</span>         <span class="hljs-number">3</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>    <span class="hljs-number">1002</span> <span class="hljs-operator">|</span>         <span class="hljs-number">2</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>    <span class="hljs-number">1003</span> <span class="hljs-operator">|</span>         <span class="hljs-number">7</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>    <span class="hljs-number">1005</span> <span class="hljs-operator">|</span>         <span class="hljs-number">2</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">---------+-----------+</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -284,36 +289,13 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/hexo-base-use/" class="category-chain-item">hexo_base_use</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
+        <a href="/tags/sql/" class="print-no-link">#sql</a>
       
-        <a href="/tags/generate-article/" class="print-no-link">#generate article</a>
-      
-        <a href="/tags/deploy-article/" class="print-no-link">#deploy article</a>
+        <a href="/tags/mysql/" class="print-no-link">#mysql</a>
       
     </div>
   
@@ -325,8 +307,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>the_method_use_hexo.md</div>
-      <div>http://example.com/2023/09/26/the-method-use-hexo-md/</div>
+      <div>where_having_diff.md</div>
+      <div>http://example.com/2023/09/26/where-having-diff-md/</div>
     </div>
     <div class="license-meta">
       
@@ -370,18 +352,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/26/where-having-diff-md/" title="where_having_diff.md">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">where_having_diff.md</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/23/create-procedure/" title="create_procedure">
-                        <span class="hidden-mobile">create_procedure</span>
+                      <a href="/2023/09/26/the-method-use-hexo-md/" title="the_method_use_hexo.md">
+                        <span class="hidden-mobile">the_method_use_hexo.md</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
