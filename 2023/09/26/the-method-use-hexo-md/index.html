@@ -16,23 +16,24 @@
   <meta name="author" content="Your294">
   <meta name="keywords" content="os,cpp,Java,sql">
   
-    <meta name="description" content="create_procedurePS: 由于mysql默认把; 作为语句结束符, 所以使用delimiter 语句来更改结束符example_code 123CALL productpricing(@pricelow,                    @pricehigh,                    @priceaverage);  123456789101112-- 修改结束符">
+    <meta name="description" content="How to use hexo to generate article1234567891011121314# create a md document in the _posts dirhexo new post your_article_name.md# after you edit all the document# you need to generate the article html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="create_procedure">
-<meta property="og:url" content="http://example.com/2023/09/23/create-procedure/index.html">
+<meta property="og:title" content="the_method_use_hexo.md">
+<meta property="og:url" content="http://example.com/2023/09/26/the-method-use-hexo-md/index.html">
 <meta property="og:site_name" content="Your294_Blog">
-<meta property="og:description" content="create_procedurePS: 由于mysql默认把; 作为语句结束符, 所以使用delimiter 语句来更改结束符example_code 123CALL productpricing(@pricelow,                    @pricehigh,                    @priceaverage);  123456789101112-- 修改结束符">
+<meta property="og:description" content="How to use hexo to generate article1234567891011121314# create a md document in the _posts dirhexo new post your_article_name.md# after you edit all the document# you need to generate the article html">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-09-23T06:46:20.000Z">
-<meta property="article:modified_time" content="2023-09-23T06:47:04.942Z">
+<meta property="article:published_time" content="2023-09-26T01:33:32.000Z">
+<meta property="article:modified_time" content="2023-09-26T01:38:00.609Z">
 <meta property="article:author" content="Your294">
-<meta property="article:tag" content="sql">
-<meta property="article:tag" content="procedure">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="generate article">
+<meta property="article:tag" content="deploy article">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>create_procedure - Your294_Blog</title>
+  <title>the_method_use_hexo.md - Your294_Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="create_procedure"></span>
+            <span id="subtitle" data-typed-text="the_method_use_hexo.md"></span>
           
         </div>
 
@@ -209,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-23 14:46" pubdate>
-          September 23, 2023 pm
+        <time datetime="2023-09-26 09:33" pubdate>
+          September 26, 2023 am
         </time>
       </span>
     
@@ -221,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k words
+          279 words
         
       </span>
     
@@ -232,7 +233,7 @@
         
         
         
-          11 mins
+          3 mins
         
       </span>
     
@@ -269,22 +270,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">create_procedure</h1>
+            <h1 id="seo-header">the_method_use_hexo.md</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="create-procedure"><a href="#create-procedure" class="headerlink" title="create_procedure"></a>create_procedure</h2><p>PS: <strong>由于mysql默认把; 作为语句结束符, 所以使用delimiter 语句来更改结束符</strong><br>example_code</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CALL</span> productpricing(<span class="hljs-variable">@pricelow</span>,<br>                    <span class="hljs-variable">@pricehigh</span>,<br>                    <span class="hljs-variable">@priceaverage</span>);<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 修改结束符为;;</span><br>delimiter ;;<br><br><span class="hljs-comment">-- 中间是定义存储过程(view)</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">PROCEDURE</span> productpricing()<br><span class="hljs-keyword">BEGIN</span><br>   <span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">Avg</span>(prod_price) <span class="hljs-keyword">AS</span> priceaverage<br>   <span class="hljs-keyword">FROM</span> products;<br><span class="hljs-keyword">END</span>;;<br><br><span class="hljs-comment">-- 恢复结束符为;</span><br>delimiter ;<br></code></pre></td></tr></table></figure>
-
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">--             taxable = 0 if not taxable, 1 if taxable</span><br><span class="hljs-comment">--             ototal = order total variable</span><br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">PROCEDURE</span> ordertotal(<br>   <span class="hljs-keyword">IN</span> onumber <span class="hljs-type">INT</span>,<br>   <span class="hljs-keyword">IN</span> taxable <span class="hljs-type">BOOLEAN</span>,<br>   <span class="hljs-keyword">OUT</span> ototal <span class="hljs-type">DECIMAL</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>)<br>) COMMENT <span class="hljs-string">&#x27;Obtain order total, optionally adding tax&#x27;</span><br><span class="hljs-keyword">BEGIN</span><br><br>   <span class="hljs-comment">-- Declare variable for total</span><br>   <span class="hljs-keyword">DECLARE</span> total <span class="hljs-type">DECIMAL</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>);<br>   <span class="hljs-comment">-- Declare tax percentage</span><br>   <span class="hljs-keyword">DECLARE</span> taxrate <span class="hljs-type">INT</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">6</span>;<br><br>   <span class="hljs-comment">-- Get the order total</span><br>   <span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">Sum</span>(item_price<span class="hljs-operator">*</span>quantity)<br>   <span class="hljs-keyword">FROM</span> orderitems<br>   <span class="hljs-keyword">WHERE</span> order_num <span class="hljs-operator">=</span> onumber<br>   <span class="hljs-keyword">INTO</span> total;<br><br>   <span class="hljs-comment">-- Is this taxable?</span><br>   IF taxable <span class="hljs-keyword">THEN</span><br>      <span class="hljs-comment">-- Yes, so add taxrate to the total</span><br>      <span class="hljs-keyword">SELECT</span> total<span class="hljs-operator">+</span>(total<span class="hljs-operator">/</span><span class="hljs-number">100</span><span class="hljs-operator">*</span>taxrate) <span class="hljs-keyword">INTO</span> total;<br>   <span class="hljs-keyword">END</span> IF;<br><br>   <span class="hljs-comment">-- And finally, save to out variable</span><br>   <span class="hljs-keyword">SELECT</span> total <span class="hljs-keyword">INTO</span> ototal;<br><br><span class="hljs-keyword">END</span>;<br></code></pre></td></tr></table></figure>
-
-<p>分析</p>
-<p>此存储过程有很大的变动。首先，增加了注释（前面放置–）。在存储过程复杂性增加时，这样做特别重要。添加了另外一个参数taxable，它是一个布尔值（如果要增加税则为真，否则为假）。在存储过程体中，用DECLARE语句定义了两个局部变量。DECLARE要求指定变量名和数据类型，它也支持可选的默认值（这个例子中的taxrate的默认被设置为6%）。SELECT语句已经改变，因此其结果存储到total（局部变量）而不是ototal。IF语句检查taxable是否为真，如果为真，则用另一SELECT语句增加营业税到局部变量total。最后，用另一SELECT语句将total（它增加或许不增加营业税）保存到ototal。</p>
-<p><strong>COMMENT关键字 本例子中的存储过程在CREATE PROCEDURE语句中包含了一个COMMENT值。它不是必需的，但如果给出，将在SHOW PROCEDURE STATUS的结果中显示。</strong></p>
+                <h2 id="How-to-use-hexo-to-generate-article"><a href="#How-to-use-hexo-to-generate-article" class="headerlink" title="How to use hexo to generate article"></a>How to use hexo to generate article</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">create a md document <span class="hljs-keyword">in</span> the _posts <span class="hljs-built_in">dir</span></span><br>hexo new post your_article_name.md<br><span class="hljs-meta prompt_"># </span><span class="language-bash">after you edit all the document</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">you need to generate the article html</span> <br>hexo g<br><span class="hljs-meta prompt_"># </span><span class="language-bash">or</span><br>hexo generate<br><span class="hljs-meta prompt_"># </span><span class="language-bash">use this order</span><br>hexo s<br><span class="hljs-meta prompt_"># </span><span class="language-bash">or</span><br>hexo server<br><span class="hljs-meta prompt_"># </span><span class="language-bash">start a <span class="hljs-built_in">local</span> server see the result</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">deploy to the github</span><br>hexo deploy<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -303,7 +294,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/sql/" class="category-chain-item">sql</a>
+  <a href="/categories/hexo-base-use/" class="category-chain-item">hexo_base_use</a>
   
   
 
@@ -318,9 +309,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/sql/" class="print-no-link">#sql</a>
+        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
       
-        <a href="/tags/procedure/" class="print-no-link">#procedure</a>
+        <a href="/tags/generate-article/" class="print-no-link">#generate article</a>
+      
+        <a href="/tags/deploy-article/" class="print-no-link">#deploy article</a>
       
     </div>
   
@@ -332,8 +325,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>create_procedure</div>
-      <div>http://example.com/2023/09/23/create-procedure/</div>
+      <div>the_method_use_hexo.md</div>
+      <div>http://example.com/2023/09/26/the-method-use-hexo-md/</div>
     </div>
     <div class="license-meta">
       
@@ -345,7 +338,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>September 23, 2023</div>
+          <div>September 26, 2023</div>
         </div>
       
       
@@ -377,18 +370,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/26/the-method-use-hexo-md/" title="the_method_use_hexo.md">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">the_method_use_hexo.md</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/23/Cartesian-product/" title="Cartesian_product">
-                        <span class="hidden-mobile">Cartesian_product</span>
+                      <a href="/2023/09/23/create-procedure/" title="create_procedure">
+                        <span class="hidden-mobile">create_procedure</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

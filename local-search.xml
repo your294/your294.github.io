@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>the_method_use_hexo.md</title>
+    <link href="/2023/09/26/the-method-use-hexo-md/"/>
+    <url>/2023/09/26/the-method-use-hexo-md/</url>
+    
+    <content type="html"><![CDATA[<h2 id="How-to-use-hexo-to-generate-article"><a href="#How-to-use-hexo-to-generate-article" class="headerlink" title="How to use hexo to generate article"></a>How to use hexo to generate article</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">create a md document <span class="hljs-keyword">in</span> the _posts <span class="hljs-built_in">dir</span></span><br>hexo new post your_article_name.md<br><span class="hljs-meta prompt_"># </span><span class="language-bash">after you edit all the document</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">you need to generate the article html</span> <br>hexo g<br><span class="hljs-meta prompt_"># </span><span class="language-bash">or</span><br>hexo generate<br><span class="hljs-meta prompt_"># </span><span class="language-bash">use this order</span><br>hexo s<br><span class="hljs-meta prompt_"># </span><span class="language-bash">or</span><br>hexo server<br><span class="hljs-meta prompt_"># </span><span class="language-bash">start a <span class="hljs-built_in">local</span> server see the result</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">deploy to the github</span><br>hexo deploy<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo_base_use</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+      <tag>generate article</tag>
+      
+      <tag>deploy article</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>create_procedure</title>
     <link href="/2023/09/23/create-procedure/"/>
     <url>/2023/09/23/create-procedure/</url>
