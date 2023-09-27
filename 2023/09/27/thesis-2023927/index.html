@@ -16,24 +16,22 @@
   <meta name="author" content="Your294">
   <meta name="keywords" content="os,cpp,Java,sql">
   
-    <meta name="description" content="use tarjan to cal 割点lc上存在类似题目https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;critical-connections-in-a-network&#x2F; 按深度优先顺序遍历所有结点，给每个结点编号为now。 对于当前结点u，其子树的能到达的最小编号，结点u肯定也能到达。即low[u] &#x3D; min(low[u], low[v]) 对于当前结点u，如果其能直接">
+    <meta name="description" content="要基于大佬的论文上做改动how to write abstract提出新的想法，提出当前解决方案的问题讲明当前情况 how to write introduction背景，现有方法存在的问题1个，针对提出的问题给出的新的解决方案该篇文章设定的解决问题的条件, 以及要解决的问题（1个）且一个面当时的方法有啥局限, 哪里可以有提升提出我们有的，他没有的方面，不评价他好的部分，提出他有限制的部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tarjan.md">
-<meta property="og:url" content="http://example.com/2023/09/26/tarjan-md/index.html">
+<meta property="og:title" content="thesis&#x2F;2023927">
+<meta property="og:url" content="http://example.com/2023/09/27/thesis-2023927/index.html">
 <meta property="og:site_name" content="Your294_Blog">
-<meta property="og:description" content="use tarjan to cal 割点lc上存在类似题目https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;critical-connections-in-a-network&#x2F; 按深度优先顺序遍历所有结点，给每个结点编号为now。 对于当前结点u，其子树的能到达的最小编号，结点u肯定也能到达。即low[u] &#x3D; min(low[u], low[v]) 对于当前结点u，如果其能直接">
+<meta property="og:description" content="要基于大佬的论文上做改动how to write abstract提出新的想法，提出当前解决方案的问题讲明当前情况 how to write introduction背景，现有方法存在的问题1个，针对提出的问题给出的新的解决方案该篇文章设定的解决问题的条件, 以及要解决的问题（1个）且一个面当时的方法有啥局限, 哪里可以有提升提出我们有的，他没有的方面，不评价他好的部分，提出他有限制的部分">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-09-26T02:13:59.000Z">
-<meta property="article:modified_time" content="2023-09-26T02:29:01.645Z">
+<meta property="article:published_time" content="2023-09-27T11:49:16.000Z">
+<meta property="article:modified_time" content="2023-09-27T11:52:05.897Z">
 <meta property="article:author" content="Your294">
-<meta property="article:tag" content="algorithm">
-<meta property="article:tag" content="graph">
-<meta property="article:tag" content="tarjan">
+<meta property="article:tag" content="thesis">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>tarjan.md - Your294_Blog</title>
+  <title>thesis/2023927 - Your294_Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="tarjan.md"></span>
+            <span id="subtitle" data-typed-text="thesis/2023927"></span>
           
         </div>
 
@@ -210,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-26 10:13" pubdate>
-          September 26, 2023 am
+        <time datetime="2023-09-27 19:49" pubdate>
+          September 27, 2023 pm
         </time>
       </span>
     
@@ -222,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k words
+          187 words
         
       </span>
     
@@ -233,7 +231,7 @@
         
         
         
-          18 mins
+          2 mins
         
       </span>
     
@@ -270,17 +268,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">tarjan.md</h1>
+            <h1 id="seo-header">thesis/2023927</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="use-tarjan-to-cal-割点"><a href="#use-tarjan-to-cal-割点" class="headerlink" title="use tarjan to cal 割点"></a>use tarjan to cal 割点</h2><p><strong>lc上存在类似题目</strong><br><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/critical-connections-in-a-network/">https://leetcode.cn/problems/critical-connections-in-a-network/</a></strong></p>
-<p>按深度优先顺序遍历所有结点，给每个结点编号为now。</p>
-<p>对于当前结点u，其子树的能到达的最小编号，结点u肯定也能到达。即<br>low[u] &#x3D; min(low[u], low[v])</p>
-<p>对于当前结点u，如果其能直接访问到之前遍历过的结点，<br>这个遍历过的结点就有可能是当前结点u能到达的最小编号。即<br>low[u] &#x3D; min(low[u], dfn[v])</p>
-<p>对于当前结点u到结点v这条边，如果从结点v继续遍历后，结点v不能到达比结点u编号更小的结点，<br>则这u-&gt;v这条边就是桥了，也就是说，除了从u走到v这条边，<br>从节点v开始走，永远走不到u和u之前走过的点了。即if(low[v] &gt; dfn[u]) ans.push_back({u,v})</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span>, <span class="hljs-type">Tuple</span><br> <br> <br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">Trajan算法求无向图的桥</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br> <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Tarjan</span>:<br>    <span class="hljs-comment"># 求无向连通图的桥</span><br><span class="hljs-meta">    @staticmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">getCuttingPointAndCuttingEdge</span>(<span class="hljs-params">edges: <span class="hljs-type">List</span>[<span class="hljs-type">Tuple</span>]</span>):<br>        link, dfn, low = &#123;&#125;, &#123;&#125;, &#123;&#125;<span class="hljs-comment"># link为字典邻接表</span><br>        global_time = [<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> a, b <span class="hljs-keyword">in</span> edges:<br>            <span class="hljs-keyword">if</span> a <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> link:<br>                link[a] = []<br>            <span class="hljs-keyword">if</span> b <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> link:<br>                link[b] = []<br>            link[a].append(b)<span class="hljs-comment">#无向图</span><br>            link[b].append(a)<span class="hljs-comment">#无向图</span><br>            dfn[a], dfn[b] = <span class="hljs-number">0x7fffffff</span>, <span class="hljs-number">0x7fffffff</span><br>            low[a], low[b] = <span class="hljs-number">0x7fffffff</span>, <span class="hljs-number">0x7fffffff</span><br> <br> <br>        cutting_points, cutting_edges = [], []<br> <br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">cur, prev, root</span>):<br>            global_time[<span class="hljs-number">0</span>] += <span class="hljs-number">1</span><br>            <span class="hljs-comment"># dfn 只有当前时间戳可以更新</span><br>            <span class="hljs-comment"># low 记录的是可以到达的祖先节点的更小的时间戳(前提是可以通过非搜索树的路径)</span><br>            dfn[cur], low[cur] = global_time[<span class="hljs-number">0</span>], global_time[<span class="hljs-number">0</span>]<br> <br>            children_cnt = <span class="hljs-number">0</span><br>            flag = <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">for</span> <span class="hljs-built_in">next</span> <span class="hljs-keyword">in</span> link[cur]:<br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">next</span> != prev:<br>                    <span class="hljs-comment"># 未访问过先访问他</span><br>                    <span class="hljs-keyword">if</span> dfn[<span class="hljs-built_in">next</span>] == <span class="hljs-number">0x7fffffff</span>:<br>                        <span class="hljs-comment"># 记录儿子节点数量</span><br>                        children_cnt += <span class="hljs-number">1</span><br>                        <span class="hljs-comment"># 先把dfn 数组填满</span><br>                        dfs(<span class="hljs-built_in">next</span>, cur, root)<br>                        <span class="hljs-comment"># 不是根且无法跨越他回到祖先</span><br>                        <span class="hljs-keyword">if</span> cur != root <span class="hljs-keyword">and</span> low[<span class="hljs-built_in">next</span>] &gt;= dfn[cur]:<br>                            flag = <span class="hljs-literal">True</span><br>                        <span class="hljs-comment"># 儿子可以到达的, 父亲一定可以到达</span><br>                        low[cur] = <span class="hljs-built_in">min</span>(low[cur], low[<span class="hljs-built_in">next</span>])<br>                        <span class="hljs-comment"># 是否是割边</span><br>                        <span class="hljs-keyword">if</span> low[<span class="hljs-built_in">next</span>] &gt; dfn[cur]:<br>                            cutting_edges.append([cur, <span class="hljs-built_in">next</span>] <span class="hljs-keyword">if</span> cur &lt; <span class="hljs-built_in">next</span> <span class="hljs-keyword">else</span> [<span class="hljs-built_in">next</span>, cur])<br>                    <span class="hljs-keyword">else</span>:<br>                        low[cur] = <span class="hljs-built_in">min</span>(low[cur], dfn[<span class="hljs-built_in">next</span>])<br>            <span class="hljs-comment"># 如果是根节点, 只需要有2棵子树就说明去掉他图不连通</span><br>            <span class="hljs-comment"># 否则: flag == True</span><br>            <span class="hljs-keyword">if</span> flag <span class="hljs-keyword">or</span> (cur == root <span class="hljs-keyword">and</span> children_cnt &gt;= <span class="hljs-number">2</span>):<br>                cutting_points.append(cur)<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;points: &quot;</span>, cutting_points)<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;edges: &quot;</span>, cutting_edges)<br> <br>        dfs(edges[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>], <span class="hljs-literal">None</span>, edges[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>])<br>        <span class="hljs-keyword">return</span> cutting_points, cutting_edges<br> <br> <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">criticalConnections</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, connections: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        edges = [(a, b) <span class="hljs-keyword">for</span> a, b <span class="hljs-keyword">in</span> connections]<br>        cutting_dots, cutting_edges = Tarjan.getCuttingPointAndCuttingEdge(edges)<br>        <span class="hljs-keyword">return</span> [[a, b] <span class="hljs-keyword">for</span> a, b <span class="hljs-keyword">in</span> cutting_edges]<br> <br> <br>connections = [[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">3</span>]]<br>n = <span class="hljs-number">4</span><br>s = Solution()<br>result = s.criticalConnections(n,connections)<br><span class="hljs-built_in">print</span>(result)<br></code></pre></td></tr></table></figure>
+                <h1 id="要基于大佬的论文上做改动"><a href="#要基于大佬的论文上做改动" class="headerlink" title="要基于大佬的论文上做改动"></a>要基于大佬的论文上做改动</h1><h2 id="how-to-write-abstract"><a href="#how-to-write-abstract" class="headerlink" title="how to write abstract"></a>how to write abstract</h2><p><strong>提出新的想法，提出当前解决方案的问题</strong><br><strong>讲明当前情况</strong></p>
+<h2 id="how-to-write-introduction"><a href="#how-to-write-introduction" class="headerlink" title="how to write introduction"></a>how to write introduction</h2><p><strong>背景</strong>，<strong>现有方法存在的问题1个</strong>，<strong>针对提出的问题给出的新的解决方案</strong><br>该篇文章设定的解决问题的条件, 以及要解决的问题（1个）且一个面<br>当时的方法有啥局限, 哪里可以有提升<br>提出我们有的，他没有的方面，不评价他好的部分，提出他有限制的部分</p>
 
                 
               </div>
@@ -299,7 +293,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/algorithm/" class="category-chain-item">algorithm</a>
+  <a href="/categories/thesis/" class="category-chain-item">thesis</a>
   
   
 
@@ -314,11 +308,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/algorithm/" class="print-no-link">#algorithm</a>
-      
-        <a href="/tags/graph/" class="print-no-link">#graph</a>
-      
-        <a href="/tags/tarjan/" class="print-no-link">#tarjan</a>
+        <a href="/tags/thesis/" class="print-no-link">#thesis</a>
       
     </div>
   
@@ -330,8 +320,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>tarjan.md</div>
-      <div>http://example.com/2023/09/26/tarjan-md/</div>
+      <div>thesis/2023927</div>
+      <div>http://example.com/2023/09/27/thesis-2023927/</div>
     </div>
     <div class="license-meta">
       
@@ -343,7 +333,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>September 26, 2023</div>
+          <div>September 27, 2023</div>
         </div>
       
       
@@ -375,18 +365,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/26/sql-lean-926/" title="sql_lean_926">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">sql_lean_926</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/26/where-having-diff-md/" title="where_having_diff.md">
-                        <span class="hidden-mobile">where_having_diff.md</span>
+                      <a href="/2023/09/27/master-record-2023927/" title="master_record/2023927">
+                        <span class="hidden-mobile">master_record/2023927</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
