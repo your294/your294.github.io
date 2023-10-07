@@ -4,6 +4,48 @@
   
   
   <entry>
+    <title>thesis_thinking_lab_10_7</title>
+    <link href="/2023/10/07/thesis-thinking-lab-10-7/"/>
+    <url>/2023/10/07/thesis-thinking-lab-10-7/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>thesis_thinking/2023/10/7</title>
+    <link href="/2023/10/07/2023-thesis-thinking-2023-10-7/"/>
+    <url>/2023/10/07/2023-thesis-thinking-2023-10-7/</url>
+    
+    <content type="html"><![CDATA[<h1 id="实验的总体设计思路"><a href="#实验的总体设计思路" class="headerlink" title="实验的总体设计思路"></a>实验的总体设计思路</h1><p>在Diversity-Oriented Test Suite Generation for EFSM Model这篇论文中他采用了GA算法，当然是修改版本的<br>他主要考虑了以下几点创新，同时为了体现它的工作量： </p><ol><li><p>他在覆盖范围这一条件的基础上考虑了生成测试样例的多样性，（<strong>同时它的GA algorithm的fitness函数也是基于此的<br>如下图展示是Diversity的具体计算</strong>）</p><p><img src="/..%5Cthesis-thinking-2023-10-7/xx.png" alt="fitness function"></p><p>如下图展示是fitness的具体计算</p><p><img src="/..%5Cthesis-thinking-2023-10-7/yy.png" alt="fitness function2"></p></li><li><p>他的GA Algorithm本质上就是在update population上做了一些改动, 比如增加个体和删除个体策略这些…</p></li><li><p>他检测它的路径是否可靠是通过它的数据生成器来决定的（其实本质上它的遗传算法不在意生成的路径是否可行，就是保证多样性和覆盖范围就行），不能生成对应测试数据的一定不可行</p></li><li><p>它的评估标准因此也和他的多样性有关，而和是否一定可生成无关了</p></li><li><p>那么他有什么缺点呢？</p></li></ol><p>我们的复现也要去针对他的缺点。他的模型有很多新的模型，<strong>Cruise Control是2016年LinkedIn开源的Kafka集群管理基于EFSM模型设计的，所以Cruise Control应该加入我们的模型测试里面</strong><br>同时他也有很多模型没去跑，那这就是我们可以发挥的空间，利用他的方法跑我们的模型，看看能不能生成可执行路径，且不要太长。<br>因为我们的研究主要需求是：<strong>生成的测试路径不要太长，且要可执行</strong>因为每个转换都意味着生产成本。<br>同时我们公共了一个模型ATM，这个简单且常见普通，作为一个基本测试目标就行。</p><h2 id="实验的复现方案"><a href="#实验的复现方案" class="headerlink" title="实验的复现方案"></a>实验的复现方案</h2><p>但是如何复现实验呢？</p><ol><li>因为我们基于PBACE的环境，我们可以实时的判断转换的可行性，所以我们不必彻底遵循他论文原有思路，反正他也不知道</li><li>我们开始随机生成路径种群时，利用dfs回溯先把所有路径搜索出来（<strong>搜索路径以覆盖准则为标准</strong>），然后把可行的路径推入种群（<strong>可能会很耗时</strong>）</li><li>复现他实现的GA算法做测试,由于他这边选的变迁都是一定可执行才去选择的，所以输入数据那边全都满足变迁要求即可。</li><li>GA Algorithm的Fitness function就按照他论文的要求去做就行，不必再额外操作了。（当然他的算法稍微有点奇怪的地方忽略就行）</li><li>我们的创新点就在于尽可能趋近于百分百生成测试数据, 同时给出了一种判断路径可执行性的方法.</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>thesis</category>
+      
+      <category>lab</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>thesis</tag>
+      
+      <tag>the lab thinking</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>thesis/2023927</title>
     <link href="/2023/09/27/thesis-2023927/"/>
     <url>/2023/09/27/thesis-2023927/</url>
