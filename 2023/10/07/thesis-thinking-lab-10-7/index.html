@@ -16,20 +16,18 @@
   <meta name="author" content="Your294">
   <meta name="keywords" content="os,cpp,Java,sql">
   
-    <meta name="description" content="a cpp and Java website">
+    <meta name="description" content="how to update the populationadd policy采用Add策略更新种群时，将候选种群中与所有其他个体差异最大的个体一一添加到新种群中。更具体地，当前种群currentpop和遗传操作生成的子种群childpop一起被视为候选种群candidatepop。从candidatepop中随机选择第一个个体插入新种群newpop，然后根据式（10）计算candidatepop中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="thesis_thinking_lab_10_7">
 <meta property="og:url" content="http://example.com/2023/10/07/thesis-thinking-lab-10-7/index.html">
 <meta property="og:site_name" content="Your294_Blog">
-<meta property="og:description" content="a cpp and Java website">
+<meta property="og:description" content="how to update the populationadd policy采用Add策略更新种群时，将候选种群中与所有其他个体差异最大的个体一一添加到新种群中。更具体地，当前种群currentpop和遗传操作生成的子种群childpop一起被视为候选种群candidatepop。从candidatepop中随机选择第一个个体插入新种群newpop，然后根据式（10）计算candidatepop中">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-07T12:16:31.000Z">
-<meta property="article:modified_time" content="2023-10-07T12:16:31.215Z">
+<meta property="article:modified_time" content="2023-10-07T12:49:45.368Z">
 <meta property="article:author" content="Your294">
-<meta property="article:tag" content="os">
-<meta property="article:tag" content="cpp">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="sql">
+<meta property="article:tag" content="thesis">
+<meta property="article:tag" content="GA Algorithm">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -223,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          907 words
         
       </span>
     
@@ -234,7 +232,7 @@
         
         
         
-          1 mins
+          8 mins
         
       </span>
     
@@ -276,7 +274,12 @@
             
               <div class="markdown-body">
                 
-                
+                <h1 id="how-to-update-the-population"><a href="#how-to-update-the-population" class="headerlink" title="how to update the population"></a>how to update the population</h1><h2 id="add-policy"><a href="#add-policy" class="headerlink" title="add policy"></a>add policy</h2><p>采用Add策略更新种群时，将候选种群中与所有其他个体差异最大的个体一一添加到新种群中。<br>更具体地，当前种群currentpop和遗传操作生成的子种群childpop一起被视为候选种群candidatepop。<br>从candidatepop中随机选择第一个个体插入新种群newpop，然后根据式（10）计算candidatepop中每个剩余个体与newpop中所有个体的不相似度。<br>根据candidatepop中每个个体的相异度，从candidatepop中选择相异值最大的个体加入newpop。重复上述过程，直到newpop中的个体数量达到预设的种群规模。更新种群的Add策略的伪代码如算法3所示。</p>
+<p><strong>Fitness($Ind_i$) &#x3D; MAX(n)(j &#x3D; 1) (D($Ind_i$,$Ind_j$))</strong></p>
+<p>candidatepop &#x3D; $currentpop \cup  childpop$<br><strong>newpop is empty</strong><br>从待选择的种群中选择索引<br>Index &#x3D; random_select(candidatepop)<br>将新个体加入新种群<br>newpop &#x3D; newpop.emplace_back(Index_people)<br>移除选中个体在待选种群中<br>cnadidatepop -&#x3D; Index<br>while (1)<br>for each Index in candidatepop<br><strong>用所有候选者和新生成种群计算差异, 并记录差异最大的那个候选者</strong><br>然后移除这个最大的候选者从候选种群里<br>并加入新种群重复上述操作直到生成原始种群</p>
+<h2 id="delete-policy"><a href="#delete-policy" class="headerlink" title="delete policy"></a>delete policy</h2><p>candidatepop &#x3D; $ currentpop \cup childpop $<br>两两组合candidatepop，这些组合会形成很多的Diversity（Ind_i, Ind_j）<br>寻找这些值的最小值<br>原文中Cov(MinIndPair_i)没看懂不管他</p>
+<p>candidatepop &#x3D; candidatepop - DelIndex<br>update上述组合Matrix<br>直到candidatepop 和当前种群大小一致<br>就生成了新的种群</p>
+
                 
               </div>
             
@@ -284,6 +287,43 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/thesis/" class="category-chain-item">thesis</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/thesis/lab/" class="category-chain-item">lab</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/thesis/" class="print-no-link">#thesis</a>
+      
+        <a href="/tags/GA-Algorithm/" class="print-no-link">#GA Algorithm</a>
+      
+    </div>
   
 </div>
 

@@ -8,9 +8,25 @@
     <link href="/2023/10/07/thesis-thinking-lab-10-7/"/>
     <url>/2023/10/07/thesis-thinking-lab-10-7/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1 id="how-to-update-the-population"><a href="#how-to-update-the-population" class="headerlink" title="how to update the population"></a>how to update the population</h1><h2 id="add-policy"><a href="#add-policy" class="headerlink" title="add policy"></a>add policy</h2><p>采用Add策略更新种群时，将候选种群中与所有其他个体差异最大的个体一一添加到新种群中。<br>更具体地，当前种群currentpop和遗传操作生成的子种群childpop一起被视为候选种群candidatepop。<br>从candidatepop中随机选择第一个个体插入新种群newpop，然后根据式（10）计算candidatepop中每个剩余个体与newpop中所有个体的不相似度。<br>根据candidatepop中每个个体的相异度，从candidatepop中选择相异值最大的个体加入newpop。重复上述过程，直到newpop中的个体数量达到预设的种群规模。更新种群的Add策略的伪代码如算法3所示。</p><p><strong>Fitness($Ind_i$) &#x3D; MAX(n)(j &#x3D; 1) (D($Ind_i$,$Ind_j$))</strong></p><p>candidatepop &#x3D; $currentpop \cup  childpop$<br><strong>newpop is empty</strong><br>从待选择的种群中选择索引<br>Index &#x3D; random_select(candidatepop)<br>将新个体加入新种群<br>newpop &#x3D; newpop.emplace_back(Index_people)<br>移除选中个体在待选种群中<br>cnadidatepop -&#x3D; Index<br>while (1)<br>for each Index in candidatepop<br><strong>用所有候选者和新生成种群计算差异, 并记录差异最大的那个候选者</strong><br>然后移除这个最大的候选者从候选种群里<br>并加入新种群重复上述操作直到生成原始种群</p><h2 id="delete-policy"><a href="#delete-policy" class="headerlink" title="delete policy"></a>delete policy</h2><p>candidatepop &#x3D; $ currentpop \cup childpop $<br>两两组合candidatepop，这些组合会形成很多的Diversity（Ind_i, Ind_j）<br>寻找这些值的最小值<br>原文中Cov(MinIndPair_i)没看懂不管他</p><p>candidatepop &#x3D; candidatepop - DelIndex<br>update上述组合Matrix<br>直到candidatepop 和当前种群大小一致<br>就生成了新的种群</p>]]></content>
     
     
+    <categories>
+      
+      <category>thesis</category>
+      
+      <category>lab</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>thesis</tag>
+      
+      <tag>GA Algorithm</tag>
+      
+    </tags>
     
   </entry>
   
