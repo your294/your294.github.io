@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>why_chatgpt_greater_than_blog</title>
+    <link href="/2023/10/11/why-chatgpt-greater-than-blog/"/>
+    <url>/2023/10/11/why-chatgpt-greater-than-blog/</url>
+    
+    <content type="html"><![CDATA[<h1 id="cpp的优先队列使用"><a href="#cpp的优先队列使用" class="headerlink" title="cpp的优先队列使用"></a>cpp的优先队列使用</h1><p>在cpp的优先队列priority_queue中你可以声明，需要存储在优先队列的变量类型，使用的存储结构，以及自定义的比较函数</p><p><strong>需要注意的是：</strong></p><ol><li>自定义比较函数时需要在函数模板处声明比较函数的类型，一种是decltype，另一种仿函数直接声明类或者结构体名称即可<br>实际上他的调用格式是__comp(first.child, second.child)好像是这样来着，仿函数他提前构造好了对象并调用operator()运算符<br>而decltype需要同时传入比较函数作为参数;</li><li>同时他的比较逻辑和正常排序是反的，这和建堆的比较操作算法有关，建议阅读堆相关文章, greater是小根堆，less是大根堆</li></ol><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">topStudents</span><span class="hljs-params">(vector&lt;string&gt;&amp; positive_feedback, vector&lt;string&gt;&amp; negative_feedback, vector&lt;string&gt;&amp; report, vector&lt;<span class="hljs-type">int</span>&gt;&amp; student_id, <span class="hljs-type">int</span> k)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = student_id.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">score</span><span class="hljs-params">(n, <span class="hljs-number">0</span>)</span></span>;<br>        unordered_set&lt;string&gt; ps, nps;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; str : positive_feedback) &#123;<br>            ps.<span class="hljs-built_in">insert</span>(str);<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; str : negative_feedback) &#123;<br>            nps.<span class="hljs-built_in">insert</span>(str);<br>        &#125;<br>        <span class="hljs-keyword">auto</span> cmp = [&amp;](<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j) -&gt; <span class="hljs-type">bool</span> &#123;<br>            <span class="hljs-keyword">if</span> (score[i] == score[j]) &#123;<br>                <span class="hljs-keyword">return</span> student_id[i] &gt; student_id[j];<br>            &#125;<br>            <span class="hljs-keyword">return</span> score[i] &lt; score[j];<br>        &#125;;<br>        priority_queue&lt;<span class="hljs-type">int</span>, vector&lt;<span class="hljs-type">int</span>&gt;, <span class="hljs-keyword">decltype</span>(cmp)&gt; <span class="hljs-built_in">q</span>(cmp);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-keyword">auto</span> sent = report[i];<br>            <span class="hljs-type">int</span> j = <span class="hljs-number">0</span>, k = <span class="hljs-number">0</span>, sc = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (; j &lt; sent.<span class="hljs-built_in">size</span>(); j++) &#123;<br>                <span class="hljs-keyword">if</span> (sent[j] == <span class="hljs-string">&#x27; &#x27;</span>) &#123;<br>                    string word = sent.<span class="hljs-built_in">substr</span>(k, j - k);<br>                    <span class="hljs-keyword">if</span> (ps.<span class="hljs-built_in">count</span>(word)) sc += <span class="hljs-number">3</span>;<br>                    <span class="hljs-keyword">if</span> (nps.<span class="hljs-built_in">count</span>(word)) sc -= <span class="hljs-number">1</span>;<br>                    k = j + <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (k &lt; sent.<span class="hljs-built_in">size</span>()) &#123;<br>                string w = sent.<span class="hljs-built_in">substr</span>(k);<br>                <span class="hljs-keyword">if</span> (ps.<span class="hljs-built_in">count</span>(w)) sc += <span class="hljs-number">3</span>;<br>                <span class="hljs-keyword">if</span> (nps.<span class="hljs-built_in">count</span>(w)) sc -= <span class="hljs-number">1</span>;<br>            &#125;<br>            score[i] = sc;<br>            q.<span class="hljs-built_in">push</span>(i);<br>        &#125;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-keyword">while</span> (k--) &#123;<br>            ans.<span class="hljs-built_in">emplace_back</span>(student_id[q.<span class="hljs-built_in">top</span>()]);<br>            q.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>cpp</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>chatgpt</tag>
+      
+      <tag>blog</tag>
+      
+      <tag>priority_queue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>help_bro_10.10</title>
     <link href="/2023/10/10/help-bro-10-10/"/>
     <url>/2023/10/10/help-bro-10-10/</url>
@@ -80,9 +109,9 @@
     
     <tags>
       
-      <tag>emo</tag>
-      
       <tag>thesis</tag>
+      
+      <tag>emo</tag>
       
       <tag>teacher</tag>
       
