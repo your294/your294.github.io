@@ -24,7 +24,7 @@
 <meta property="og:description" content="JavaScript Knowledge notesthis in javaScript它拥有不同的值，具体取决于它的使用位置：  在方法中，this 指的是所有者对象。 单独的情况下，this 指的是全局对象。 在函数中，this 指的是全局对象。 在函数中，严格模式下，this 是 undefined。 在事件中，this 指的是接收事件的元素。  箭头函数&#96;&#96;在JavaScr">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-14T09:22:20.000Z">
-<meta property="article:modified_time" content="2023-10-17T11:56:10.434Z">
+<meta property="article:modified_time" content="2023-10-17T12:12:35.109Z">
 <meta property="article:author" content="Your294">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="this">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          904 words
+          940 words
         
       </span>
     
@@ -284,7 +284,8 @@
 </ul>
 <h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><h2 id=""><a href="#" class="headerlink" title="&#96;&#96;"></a>&#96;&#96;</h2><p>在JavaScript中，反引号（&#96;&#96;）通常用于创建模板字面量（template literals）</p>
 <h2 id="获取对象属性"><a href="#获取对象属性" class="headerlink" title="获取对象属性"></a>获取对象属性</h2><p>在JavaScript中，可以使用方括号（[]）来访问对象的属性。对象的属性可以用点表示法（.）或方括号表示法来访问，这两种方法都可以用于获取对象属性的值。</p>
-<h2 id="javaScript-导入导出模块细则"><a href="#javaScript-导入导出模块细则" class="headerlink" title="javaScript 导入导出模块细则"></a>javaScript 导入导出模块细则</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>导出有2种类型，命名导出和默认导出<br>带有函数或变量的模块可以存储在任何外部文件中。</p>
+<h2 id="javaScript-导入导出模块细则"><a href="#javaScript-导入导出模块细则" class="headerlink" title="javaScript 导入导出模块细则"></a>javaScript 导入导出模块细则</h2><p>首先未导出的函数或变量只在当前模块可见</p>
+<h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>导出有2种类型，命名导出和默认导出<br>带有函数或变量的模块可以存储在任何外部文件中。</p>
 <p><strong>命名导出</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> router = <span class="hljs-title function_">createRouter</span>(&#123;<br>    <span class="hljs-attr">history</span>: <span class="hljs-title function_">createWebHistory</span>(),<br>    <span class="hljs-attr">routes</span>: constantRouteMap<br>&#125;)<br><br><span class="hljs-comment">// second</span><br><span class="hljs-keyword">const</span> a = <span class="hljs-number">1</span><br><span class="hljs-keyword">const</span> b = <span class="hljs-number">2</span><br><span class="hljs-keyword">export</span> &#123;a, b&#125;<br></code></pre></td></tr></table></figure>
 
@@ -297,6 +298,7 @@
 
 <p><strong>从默认导出导入</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"><span class="hljs-keyword">import</span> message <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./message.js&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p>本地文件打开的网页形式无法导入导出</p>
 
                 
               </div>
