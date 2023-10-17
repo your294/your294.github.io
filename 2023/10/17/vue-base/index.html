@@ -16,24 +16,23 @@
   <meta name="author" content="Your294">
   <meta name="keywords" content="os,cpp,Java,sql">
   
-    <meta name="description" content="md， 导师不会把话说明白吗，我真的服了，nmmd，叫我过去汇报直接给我骂1个半小时我谢谢你，半个小时能说清楚的事情，一定要得劲暗示，直说不就完事，本来现在好歹还是可以共赢的情况，非得给我整些幺蛾子，我谢谢你。">
+    <meta name="description" content="vue的基本使用1npm create vue@latest &#x2F; npm create vue vue的文件组织形式-src    -components (基本的布局组件等)    -views (存放各个页面的组件–一堆.vue files)    -assests (存放网页必要的图片资源)    -App.vue (default 根组件)    -main.js通过createApp传入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="blog_of_my_teach">
-<meta property="og:url" content="http://example.com/2023/10/08/blog-of-my-teach/index.html">
+<meta property="og:title" content="vue_base">
+<meta property="og:url" content="http://example.com/2023/10/17/vue-base/index.html">
 <meta property="og:site_name" content="Your294_Blog">
-<meta property="og:description" content="md， 导师不会把话说明白吗，我真的服了，nmmd，叫我过去汇报直接给我骂1个半小时我谢谢你，半个小时能说清楚的事情，一定要得劲暗示，直说不就完事，本来现在好歹还是可以共赢的情况，非得给我整些幺蛾子，我谢谢你。">
+<meta property="og:description" content="vue的基本使用1npm create vue@latest &#x2F; npm create vue vue的文件组织形式-src    -components (基本的布局组件等)    -views (存放各个页面的组件–一堆.vue files)    -assests (存放网页必要的图片资源)    -App.vue (default 根组件)    -main.js通过createApp传入">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-10-08T06:00:02.000Z">
-<meta property="article:modified_time" content="2023-10-08T06:03:05.291Z">
+<meta property="article:published_time" content="2023-10-17T02:28:03.000Z">
+<meta property="article:modified_time" content="2023-10-17T11:41:49.597Z">
 <meta property="article:author" content="Your294">
-<meta property="article:tag" content="emo">
-<meta property="article:tag" content="thesis">
-<meta property="article:tag" content="teacher">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="front">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>blog_of_my_teach - Your294_Blog</title>
+  <title>vue_base - Your294_Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="blog_of_my_teach"></span>
+            <span id="subtitle" data-typed-text="vue_base"></span>
           
         </div>
 
@@ -210,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-08 14:00" pubdate>
-          October 8, 2023 pm
+        <time datetime="2023-10-17 10:28" pubdate>
+          October 17, 2023 am
         </time>
       </span>
     
@@ -222,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          104 words
+          928 words
         
       </span>
     
@@ -233,7 +232,7 @@
         
         
         
-          1 mins
+          8 mins
         
       </span>
     
@@ -270,12 +269,23 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">blog_of_my_teach</h1>
+            <h1 id="seo-header">vue_base</h1>
             
             
               <div class="markdown-body">
                 
-                <p>md， 导师不会把话说明白吗，我真的服了，nmmd，叫我过去汇报直接给我骂1个半小时<br>我谢谢你，半个小时能说清楚的事情，一定要得劲暗示，直说不就完事，本来现在好歹还是可以共赢的情况，<br>非得给我整些幺蛾子，我谢谢你。</p>
+                <h1 id="vue的基本使用"><a href="#vue的基本使用" class="headerlink" title="vue的基本使用"></a>vue的基本使用</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm create vue@latest / npm create vue<br></code></pre></td></tr></table></figure>
+<h2 id="vue的文件组织形式"><a href="#vue的文件组织形式" class="headerlink" title="vue的文件组织形式"></a>vue的文件组织形式</h2><p>-src<br>    -components (基本的布局组件等)<br>    -views (存放各个页面的组件–一堆.vue files)<br>    -assests (存放网页必要的图片资源)<br>    -App.vue (<strong>default 根组件</strong>)<br>    -main.js<br>通过createApp传入的是一个标准的组件创建一个应用实例, 此处是根组件</p>
+<h3 id="挂载应用"><a href="#挂载应用" class="headerlink" title="挂载应用"></a>挂载应用</h3><p><strong>应用实例必须在调用了 .mount() 方法后才会渲染出来。该方法接收一个“容器”参数，可以是一个实际的 DOM 元素或是一个 CSS 选择器字符串：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;div id=&quot;app&quot;&gt;<br>    ....<br>&lt;/div&gt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-title function_">createApp</span>(<span class="hljs-title class_">App</span>)<br>app.<span class="hljs-title function_">mount</span>(<span class="hljs-string">&quot;#app&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="vue的script基本使用"><a href="#vue的script基本使用" class="headerlink" title="vue的script基本使用"></a>vue的script基本使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script&gt;<br>export default &#123;<br>  // data() 返回的属性将会成为响应式的状态<br>  // 并且暴露在 `this` 上<br>  data() &#123;<br>    return &#123;<br>      count: 0<br>    &#125;<br>  &#125;,<br><br>  // methods 是一些用来更改状态与触发更新的函数<br>  // 它们可以在模板中作为事件处理器绑定<br>  methods: &#123;<br>    increment() &#123;<br>      this.count++<br>    &#125;<br>  &#125;,<br><br>  // 生命周期钩子会在组件生命周期的各个不同阶段被调用<br>  // 例如这个函数就会在组件挂载完成后被调用<br>  mounted() &#123;<br>    console.log(`The initial count is $&#123;this.count&#125;.`)<br>  &#125;<br>&#125;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;button @click=&quot;increment&quot;&gt;Count is: &#123;&#123; count &#125;&#125;&lt;/button&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="vue-router基本使用"><a href="#vue-router基本使用" class="headerlink" title="vue-router基本使用"></a>vue-router基本使用</h2><!-- 路由匹配到的组件会渲染在这里 -->
+<p><router-view></router-view></p>
 
                 
               </div>
@@ -294,7 +304,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AF%BB%E7%A0%94%E7%9A%84%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="category-chain-item">读研的碎碎念</a>
+  <a href="/categories/vue/" class="category-chain-item">vue</a>
   
   
 
@@ -309,11 +319,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/emo/" class="print-no-link">#emo</a>
+        <a href="/tags/vue/" class="print-no-link">#vue</a>
       
-        <a href="/tags/thesis/" class="print-no-link">#thesis</a>
-      
-        <a href="/tags/teacher/" class="print-no-link">#teacher</a>
+        <a href="/tags/front/" class="print-no-link">#front</a>
       
     </div>
   
@@ -325,8 +333,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>blog_of_my_teach</div>
-      <div>http://example.com/2023/10/08/blog-of-my-teach/</div>
+      <div>vue_base</div>
+      <div>http://example.com/2023/10/17/vue-base/</div>
     </div>
     <div class="license-meta">
       
@@ -338,7 +346,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>October 8, 2023</div>
+          <div>October 17, 2023</div>
         </div>
       
       
@@ -370,9 +378,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/10/Dinic/" title="Dinic">
+                      <a href="/2023/10/17/vue-EIDSIR/" title="vue_EIDSIR">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Dinic</span>
+                        <span class="hidden-mobile">vue_EIDSIR</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -380,8 +388,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/07/thesis-thinking-lab-10-7/" title="thesis_thinking_lab_10_7">
-                        <span class="hidden-mobile">thesis_thinking_lab_10_7</span>
+                      <a href="/2023/10/14/js-this/" title="js-this">
+                        <span class="hidden-mobile">js-this</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

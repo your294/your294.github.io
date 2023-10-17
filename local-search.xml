@@ -4,6 +4,178 @@
   
   
   <entry>
+    <title>vue_import_export</title>
+    <link href="/2023/10/17/vue-import-export/"/>
+    <url>/2023/10/17/vue-import-export/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Vue4-导入导出详解"><a href="#Vue4-导入导出详解" class="headerlink" title="Vue4 导入导出详解"></a>Vue4 导入导出详解</h1><ol><li>如果vue导入js文件时该文件夹下只有这一个js文件, 可以写到文件夹为止, vue会默认查找index.js作为入口文件</li><li>如果 import MyComponent from ‘.&#x2F;components’<br>依旧默认查找index.js但是如果不存在就找myComponent.js</li></ol><p><strong>为了以防万一可以导入写到vue文件为止，一般不用写后缀，写后缀也可以</strong></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>import</tag>
+      
+      <tag>export</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vue_EIDSIR</title>
+    <link href="/2023/10/17/vue-EIDSIR/"/>
+    <url>/2023/10/17/vue-EIDSIR/</url>
+    
+    <content type="html"><![CDATA[<h2 id="vue报错-EISDIR-illegal-operation-on-a-directory-read解决"><a href="#vue报错-EISDIR-illegal-operation-on-a-directory-read解决" class="headerlink" title="vue报错: EISDIR: illegal operation on a directory, read解决"></a>vue报错: EISDIR: illegal operation on a directory, read解决</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">EISDIR: illegal operation on a directory, read<br>Internal server error: EISDIR: illegal operation on a directory, read<br></code></pre></td></tr></table></figure><p>引入子组件只引入到了文件夹，xxx&#x2F;dir&#x2F;index.vue, but juse xxx&#x2F;dir</p><p>juse link to the javaScript import and export rules.md<br>[vue import and export](<a href="/2023/10/17/vue-import-export/" title="vue_import_export">vue_import_export</a>#vue 导入导出模块细则)<br>[js knowledge](<a href="/2023/10/14/js-this/" title="js-this">js-this</a># javaScript knowledge)</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>EIDSIR</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vue_base</title>
+    <link href="/2023/10/17/vue-base/"/>
+    <url>/2023/10/17/vue-base/</url>
+    
+    <content type="html"><![CDATA[<h1 id="vue的基本使用"><a href="#vue的基本使用" class="headerlink" title="vue的基本使用"></a>vue的基本使用</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm create vue@latest / npm create vue<br></code></pre></td></tr></table></figure><h2 id="vue的文件组织形式"><a href="#vue的文件组织形式" class="headerlink" title="vue的文件组织形式"></a>vue的文件组织形式</h2><p>-src<br>    -components (基本的布局组件等)<br>    -views (存放各个页面的组件–一堆.vue files)<br>    -assests (存放网页必要的图片资源)<br>    -App.vue (<strong>default 根组件</strong>)<br>    -main.js<br>通过createApp传入的是一个标准的组件创建一个应用实例, 此处是根组件</p><h3 id="挂载应用"><a href="#挂载应用" class="headerlink" title="挂载应用"></a>挂载应用</h3><p><strong>应用实例必须在调用了 .mount() 方法后才会渲染出来。该方法接收一个“容器”参数，可以是一个实际的 DOM 元素或是一个 CSS 选择器字符串：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;div id=&quot;app&quot;&gt;<br>    ....<br>&lt;/div&gt;<br></code></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-title function_">createApp</span>(<span class="hljs-title class_">App</span>)<br>app.<span class="hljs-title function_">mount</span>(<span class="hljs-string">&quot;#app&quot;</span>)<br></code></pre></td></tr></table></figure><h2 id="vue的script基本使用"><a href="#vue的script基本使用" class="headerlink" title="vue的script基本使用"></a>vue的script基本使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script&gt;<br>export default &#123;<br>  // data() 返回的属性将会成为响应式的状态<br>  // 并且暴露在 `this` 上<br>  data() &#123;<br>    return &#123;<br>      count: 0<br>    &#125;<br>  &#125;,<br><br>  // methods 是一些用来更改状态与触发更新的函数<br>  // 它们可以在模板中作为事件处理器绑定<br>  methods: &#123;<br>    increment() &#123;<br>      this.count++<br>    &#125;<br>  &#125;,<br><br>  // 生命周期钩子会在组件生命周期的各个不同阶段被调用<br>  // 例如这个函数就会在组件挂载完成后被调用<br>  mounted() &#123;<br>    console.log(`The initial count is $&#123;this.count&#125;.`)<br>  &#125;<br>&#125;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;button @click=&quot;increment&quot;&gt;Count is: &#123;&#123; count &#125;&#125;&lt;/button&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure><h2 id="vue-router基本使用"><a href="#vue-router基本使用" class="headerlink" title="vue-router基本使用"></a>vue-router基本使用</h2><!-- 路由匹配到的组件会渲染在这里 --><p><router-view></router-view></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>front</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>js-this</title>
+    <link href="/2023/10/14/js-this/"/>
+    <url>/2023/10/14/js-this/</url>
+    
+    <content type="html"><![CDATA[<h1 id="JavaScript-Knowledge-notes"><a href="#JavaScript-Knowledge-notes" class="headerlink" title="JavaScript Knowledge notes"></a>JavaScript Knowledge notes</h1><h2 id="this-in-javaScript"><a href="#this-in-javaScript" class="headerlink" title="this in javaScript"></a>this in javaScript</h2><p>它拥有不同的值，具体取决于它的使用位置：</p><ul><li>在方法中，this 指的是所有者对象。</li><li>单独的情况下，this 指的是全局对象。</li><li>在函数中，this 指的是全局对象。</li><li>在函数中，严格模式下，this 是 undefined。</li><li>在事件中，this 指的是接收事件的元素。</li></ul><h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><h2 id=""><a href="#" class="headerlink" title="&#96;&#96;"></a>&#96;&#96;</h2><p>在JavaScript中，反引号（&#96;&#96;）通常用于创建模板字面量（template literals）</p><h2 id="获取对象属性"><a href="#获取对象属性" class="headerlink" title="获取对象属性"></a>获取对象属性</h2><p>在JavaScript中，可以使用方括号（[]）来访问对象的属性。对象的属性可以用点表示法（.）或方括号表示法来访问，这两种方法都可以用于获取对象属性的值。</p><h2 id="javaScript-导入导出模块细则"><a href="#javaScript-导入导出模块细则" class="headerlink" title="javaScript 导入导出模块细则"></a>javaScript 导入导出模块细则</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>导出有2种类型，命名导出和默认导出<br>带有函数或变量的模块可以存储在任何外部文件中。</p><p><strong>命名导出</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> router = <span class="hljs-title function_">createRouter</span>(&#123;<br>    <span class="hljs-attr">history</span>: <span class="hljs-title function_">createWebHistory</span>(),<br>    <span class="hljs-attr">routes</span>: constantRouteMap<br>&#125;)<br><br><span class="hljs-comment">// second</span><br><span class="hljs-keyword">const</span> a = <span class="hljs-number">1</span><br><span class="hljs-keyword">const</span> b = <span class="hljs-number">2</span><br><span class="hljs-keyword">export</span> &#123;a, b&#125;<br></code></pre></td></tr></table></figure><p><strong>默认导出(one file has only one default export)</strong> </p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">message</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br><span class="hljs-keyword">const</span> name = <span class="hljs-string">&quot;Bill&quot;</span>;<br><span class="hljs-keyword">const</span> age = <span class="hljs-number">19</span>;<br><span class="hljs-keyword">return</span> name + <span class="hljs-string">&#x27; is &#x27;</span> + age + <span class="hljs-string">&#x27;years old.&#x27;</span>;<br>&#125;;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> message;<br></code></pre></td></tr></table></figure><h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>导入也有2种方式, 具体取决于导出的方式即默认导出还是命名导出</p><p><strong>从命名导出中导入</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"><span class="hljs-keyword">import</span> &#123;&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-router&#x27;</span><br><span class="hljs-keyword">import</span> &#123;name, age&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./person.js&#x27;</span><br></code></pre></td></tr></table></figure><p><strong>从默认导出导入</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"><span class="hljs-keyword">import</span> message <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./message.js&#x27;</span>;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>front</category>
+      
+      <category>javaScript</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+      <tag>this</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>css_selector</title>
+    <link href="/2023/10/14/css-selector/"/>
+    <url>/2023/10/14/css-selector/</url>
+    
+    <content type="html"><![CDATA[<h1 id="the-sumary-for-CSS-selector"><a href="#the-sumary-for-CSS-selector" class="headerlink" title="the sumary for CSS selector"></a>the sumary for CSS selector</h1><p><strong>组合器</strong></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">element element | div p | 选择 &lt;div&gt; 元素内的所有 &lt;p&gt; 元素<br>element&gt;element | div &gt; p | 选择其父元素是 &lt;div&gt; 元素的所有 &lt;p&gt; 元素。<br>element+element | div + p | 选择所有紧随 &lt;div&gt; 元素之后的 &lt;p&gt; 元素。（一般就一个）<br>element1~element2 | p ~ ul | 选择&lt;ul&gt;要求前面有 &lt;p&gt; <br></code></pre></td></tr></table></figure><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-class">.page-layout</span>,<br><span class="hljs-selector-class">.ant-layout</span> &#123;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">overflow-x</span>: hidden;<br>&#125;<br><br><span class="hljs-selector-class">.layout-content</span> &#123;<br>  <span class="hljs-attribute">overflow-y</span>: scroll;<br>  <span class="hljs-comment">/* use &amp; to ref `.layout-content` and `::` is 伪元素选择器 */</span><br>  <span class="hljs-selector-tag">&amp;</span>::<span class="hljs-selector-tag">-webkit-scrollbar</span> &#123;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">8px</span>;<br>  &#125;<br><br>  <span class="hljs-selector-tag">&amp;</span>::<span class="hljs-selector-tag">-webkit-scrollbar-track</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#e9e9e9e9</span>;<br>  &#125;<br><br>  <span class="hljs-selector-tag">&amp;</span>::<span class="hljs-selector-tag">-webkit-scrollbar-thumb</span> &#123;<br>    <span class="hljs-attribute">background</span>: <span class="hljs-number">#ccc</span>;<br>    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">25px</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>front</category>
+      
+      <category>css</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+      <tag>selector</tag>
+      
+      <tag>组合器</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>css_basic</title>
+    <link href="/2023/10/14/css-basic/"/>
+    <url>/2023/10/14/css-basic/</url>
+    
+    <content type="html"><![CDATA[<h1 id="CSS中一些常用属性还有必要模型"><a href="#CSS中一些常用属性还有必要模型" class="headerlink" title="CSS中一些常用属性还有必要模型"></a>CSS中一些常用属性还有必要模型</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 简写边框属性需要按照一定的顺序, </span><br><span class="hljs-comment">查文档就行 */</span><br><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-comment">/* border 是边框属性 */</span><br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">5px</span> solid red;<br>  <span class="hljs-comment">/* 外边距属性 上右下左 */</span><br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">25px</span> <span class="hljs-number">50px</span> <span class="hljs-number">75px</span> <span class="hljs-number">100px</span>;<br>  <span class="hljs-comment">/* 内边距属性 */</span><br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">25px</span> <span class="hljs-number">50px</span> <span class="hljs-number">75px</span> <span class="hljs-number">100px</span><br>&#125;<br><br></code></pre></td></tr></table></figure><h2 id="CSS框模型"><a href="#CSS框模型" class="headerlink" title="CSS框模型"></a>CSS框模型</h2><p>css框模型说明 <a href="https://www.w3school.com.cn/css/css_boxmodel.asp">w3cschool</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>front</category>
+      
+      <category>css</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+      <tag>css框模型</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>October_plan</title>
     <link href="/2023/10/12/October-plan/"/>
     <url>/2023/10/12/October-plan/</url>
@@ -134,9 +306,9 @@
     
     <tags>
       
-      <tag>thesis</tag>
-      
       <tag>emo</tag>
+      
+      <tag>thesis</tag>
       
       <tag>teacher</tag>
       
