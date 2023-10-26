@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Your294">
+  <meta name="keywords" content="os,cpp,Java,sql">
+  
+    <meta name="description" content="vue-router基本使用项目架构-src    -assets （静态文件）    -components （公共组件）    -views (主要界面)    -router (配置路由下面一般就一个index&#x2F;router.js文件)    -config (必要配置) 在config&gt;index.js中配置proxyTable123456789proxyTable: &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-router-use">
+<meta property="og:url" content="http://example.com/2023/10/26/vue-router-use/index.html">
+<meta property="og:site_name" content="Your294_Blog">
+<meta property="og:description" content="vue-router基本使用项目架构-src    -assets （静态文件）    -components （公共组件）    -views (主要界面)    -router (配置路由下面一般就一个index&#x2F;router.js文件)    -config (必要配置) 在config&gt;index.js中配置proxyTable123456789proxyTable: &amp;#">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-26T07:54:48.000Z">
+<meta property="article:modified_time" content="2023-10-26T09:05:33.624Z">
+<meta property="article:author" content="Your294">
+<meta property="article:tag" content="vue-router">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>vue-router-use - Your294_Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Your294 Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="vue-router-use"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-26 15:54" pubdate>
+          October 26, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          50 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">vue-router-use</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="vue-router基本使用"><a href="#vue-router基本使用" class="headerlink" title="vue-router基本使用"></a>vue-router基本使用</h1><h2 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h2><p>-src<br>    -assets （静态文件）<br>    -components （公共组件）<br>    -views (主要界面)<br>    -router (配置路由下面一般就一个index&#x2F;router.js文件)<br>    -config (必要配置)</p>
+<h2 id="在config-index-js中配置proxyTable"><a href="#在config-index-js中配置proxyTable" class="headerlink" title="在config&gt;index.js中配置proxyTable"></a>在config&gt;index.js中配置proxyTable</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">proxyTable</span>: &#123;<br>    <span class="hljs-string">&#x27;/api&#x27;</span>: &#123;<br>        <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;http://127.0.0.1:8080&#x27;</span>,<br>        <span class="hljs-attr">changeOrigin</span>: <span class="hljs-literal">true</span>,<br>        <span class="hljs-attr">pathRewrite</span>: &#123;<br>            <span class="hljs-string">&#x27;^/api&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-comment">// use /api replace the address in target</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="路由拦截"><a href="#路由拦截" class="headerlink" title="路由拦截"></a>路由拦截</h2><h2 id="在router-index-js中配置beforeEach"><a href="#在router-index-js中配置beforeEach" class="headerlink" title="在router&gt;index.js中配置beforeEach"></a>在router&gt;index.js中配置beforeEach</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js">router.<span class="hljs-title function_">beforeEach</span>(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">if</span> (to.<span class="hljs-property">path</span> !== <span class="hljs-string">&#x27;/login&#x27;</span> &amp;&amp; !<span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">token</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_">next</span>(<span class="hljs-string">&#x27;/login&#x27;</span>)<br>    &#125;<br>    <span class="hljs-comment">// this next is in the func params</span><br>    <span class="hljs-title function_">next</span>()<br>&#125;)<br><span class="hljs-comment">// in the actual example</span><br>router.<span class="hljs-title function_">beforeEach</span>(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> token = authorization.<span class="hljs-title function_">getToken</span>()<br>    <span class="hljs-keyword">if</span> (token) &#123;<br>        <span class="hljs-title function_">next</span>()<br>        <span class="hljs-comment">// if (to.path === &#x27;/login&#x27;) &#123;</span><br>        <span class="hljs-comment">//     next(&#123;</span><br>        <span class="hljs-comment">//         path: &#x27;/&#x27;,</span><br>        <span class="hljs-comment">//         replace: true </span><br>        <span class="hljs-comment">//     &#125;)</span><br>        <span class="hljs-comment">// &#125;else &#123;</span><br>        <span class="hljs-comment">//     console.log(&#x27;get user info&#x27;).then(next)</span><br>        <span class="hljs-comment">// &#125;</span><br>    &#125;<span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">if</span> (config.<span class="hljs-property">whiteList</span>.<span class="hljs-title function_">includes</span>(to.<span class="hljs-property">path</span>) || to.<span class="hljs-property">meta</span>.<span class="hljs-property">notRequireLogin</span>) &#123;<br>            <span class="hljs-title function_">next</span>()<br>        &#125;<span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-title function_">next</span>(<span class="hljs-string">&#x27;/login&#x27;</span>)<br>        &#125;<br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>每个钩子方法接收三个参数： </p>
+<ul>
+<li>to: Route: 即将要进入的目标 路由对象 </li>
+<li>from: Route: 当前导航正要离开的路由 </li>
+<li>next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。 </li>
+<li>next(): 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 confirmed （确认的）。 * </li>
+<li>next(false): 中断当前的导航。如果浏览器的 URL 改变了（可能是用户手动或者浏览器后退按钮），那么 URL 地址会重置到 from 路由对应的地址。 * </li>
+<li>next(‘&#x2F;’) 或者 next({ path: ‘&#x2F;’ }): 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。</li>
+<li>确保要调用 next 方法，否则钩子就不会被 resolved。</li>
+</ul>
+<p>这种方式只是简单的前端路由控制，并不能真正阻止用户访问需要登录权限的路由。<br>还有一种情况便是：当前token失效了，但是token依然保存在本地。这时候你去访问需要登录权限的路由时，实际上应该让用户重新登录。<br><strong>这时候就需要结合 http 拦截器 + 后端接口返回的http 状态码来判断。</strong></p>
+<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p><strong>新建一个http.js来配置axios拦截器, 统一处理所有http请求和响应, 使用axios的拦截器.</strong><br>通过配置 <font color='red'><strong>http request interceptors</strong></font>为http头添加Authorization字段, 其内容为token.<br>通过配置 <font color='red'><strong>http response interceptors</strong></font>,当后端接口返回401 Unanthorization,重新登录</p>
+<h4 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span><br><br><span class="hljs-keyword">const</span> http = axios.<span class="hljs-title function_">create</span>()<br><span class="hljs-comment">// http request 拦截器</span><br><span class="hljs-comment">// 每次请求都为http头增加Authorization字段，其内容为Token</span><br>http.<span class="hljs-property">interceptors</span>.<span class="hljs-property">request</span>.<span class="hljs-title function_">use</span>(<br>  <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> token = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&#x27;token&#x27;</span>);<br>    <span class="hljs-keyword">if</span> (token) &#123;<br>      config.<span class="hljs-property">headers</span>.<span class="hljs-property">common</span>[<span class="hljs-string">&#x27;Authorization&#x27;</span>] = token;<br>    &#125;<br>    <span class="hljs-keyword">return</span> config;<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error);<br>  &#125;<br>);<br><br><span class="hljs-comment">// http response 拦截器</span><br>http.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>.<span class="hljs-title function_">use</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">let</span> data = response.<span class="hljs-property">data</span><br>  <span class="hljs-keyword">if</span> (data.<span class="hljs-property">code</span> === <span class="hljs-number">200</span>) &#123;<br>    <span class="hljs-keyword">return</span> data.<span class="hljs-property">data</span><br>  &#125;<br>  <span class="hljs-keyword">if</span> (data.<span class="hljs-property">code</span> === <span class="hljs-number">401</span>) &#123;<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">href</span> = <span class="hljs-string">&#x27;/login&#x27;</span><br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(data)<br>&#125;, <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br>&#125;)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> http<br><br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>此处抽象了前端的服务<br><strong>service&gt;index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span><br><span class="hljs-keyword">import</span> authorization <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/utils/authorization&#x27;</span><br><span class="hljs-keyword">import</span> config <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@config&#x27;</span><br><span class="hljs-keyword">import</span> &#123; notification <span class="hljs-keyword">as</span> <span class="hljs-title class_">Notice</span>, message <span class="hljs-keyword">as</span> <span class="hljs-title class_">Message</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;ant-design-vue&#x27;</span><br><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/router/router.js&#x27;</span><br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Request</span> &#123;<br>  instance<br>  interceptors<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">config</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">instance</span> = axios.<span class="hljs-title function_">create</span>(config)<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">interceptors</span> = config.<span class="hljs-property">interceptors</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">instance</span>.<span class="hljs-property">interceptors</span>.<span class="hljs-property">request</span>.<span class="hljs-title function_">use</span>(<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">interceptors</span>?.<span class="hljs-property">requestInterceptor</span>,<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">interceptors</span>?.<span class="hljs-property">requestInterceptorCatch</span><br>    )<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">instance</span>.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>.<span class="hljs-title function_">use</span>(<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">interceptors</span>?.<span class="hljs-property">responseInterceptor</span>,<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">interceptors</span>?.<span class="hljs-property">responseInterceptorCatch</span><br>    )<br><br>    <span class="hljs-comment">// 所有实例都共享的拦截器</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">instance</span>.<span class="hljs-property">interceptors</span>.<span class="hljs-property">request</span>.<span class="hljs-title function_">use</span>(<span class="hljs-function">(<span class="hljs-params">config</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> config<br>    &#125;)<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">instance</span>.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>.<span class="hljs-title function_">use</span>(<span class="hljs-function">(<span class="hljs-params">config</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> config.<span class="hljs-property">data</span><br>    &#125;)<br>  &#125;<br><br>  <span class="hljs-title function_">request</span>(<span class="hljs-params">config</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;<br>      <span class="hljs-comment">// 单个请求对请求config的处理</span><br>      <span class="hljs-keyword">if</span> (config.<span class="hljs-property">interceptors</span>?.<span class="hljs-property">requestInterceptor</span>) &#123;<br>        config = config.<span class="hljs-property">interceptors</span>.<span class="hljs-title function_">requestInterceptor</span>(config)<br>      &#125;<br><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">instance</span><br>        .<span class="hljs-title function_">request</span>(config)<br>        .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>          <span class="hljs-comment">// 单个请求对数据的处理</span><br>          <span class="hljs-keyword">if</span> (config.<span class="hljs-property">interceptors</span>?.<span class="hljs-property">responseInterceptor</span>) &#123;<br>            res = config.<span class="hljs-property">interceptors</span>.<span class="hljs-title function_">responseInterceptor</span>(res)<br>          &#125;<br><br>          <span class="hljs-comment">// 将结果resolve返回出去</span><br>          <span class="hljs-title function_">resolve</span>(res)<br>        &#125;)<br>        .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> &#123;<br>          <span class="hljs-title function_">reject</span>(err)<br>          <span class="hljs-keyword">return</span> err<br>        &#125;)<br>    &#125;)<br>  &#125;<br><br>  <span class="hljs-title function_">get</span>(<span class="hljs-params">config</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">request</span>(&#123; ...config, <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span> &#125;)<br>  &#125;<br><br>  <span class="hljs-title function_">post</span>(<span class="hljs-params">config</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">request</span>(&#123; ...config, <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span> &#125;)<br>  &#125;<br><br>  <span class="hljs-title function_">delete</span>(<span class="hljs-params">config</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">request</span>(&#123; ...config, <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;DELETE&#x27;</span> &#125;)<br>  &#125;<br><br>  <span class="hljs-title function_">patch</span>(<span class="hljs-params">config</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">request</span>(&#123; ...config, <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;PATCH&#x27;</span> &#125;)<br>  &#125;<br><br>  <span class="hljs-title function_">put</span>(<span class="hljs-params">config</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">request</span>(&#123; ...config, <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;PUT&#x27;</span> &#125;)<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// 这里的config也都是形参</span><br><span class="hljs-comment">// 例如: requestInterceptor属性值其实是一个函数调用</span><br><span class="hljs-keyword">const</span> request = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Request</span>(&#123;<br>  <span class="hljs-attr">interceptors</span>: &#123;<br>    <span class="hljs-attr">requestInterceptor</span>: <span class="hljs-function">(<span class="hljs-params">config</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> token = authorization.<span class="hljs-title function_">getToken</span>()<br>      <span class="hljs-keyword">if</span> (token) &#123;<br>        config.<span class="hljs-property">headers</span>.<span class="hljs-property">Authorization</span> = token<br>      &#125;<br>      <span class="hljs-keyword">return</span> config<br>    &#125;,<br>    <span class="hljs-attr">requestInterceptorCatch</span>: <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> err<br>    &#125;,<br>    <span class="hljs-attr">responseInterceptor</span>: <span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> data = res.<span class="hljs-property">data</span><br>      <span class="hljs-keyword">const</span> error = &#123;<br>        <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;error&#x27;</span>,<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;操作失败&#x27;</span>,<br>        <span class="hljs-attr">method</span>: res.<span class="hljs-property">config</span>.<span class="hljs-property">method</span>,<br>        <span class="hljs-attr">url</span>: res.<span class="hljs-property">config</span>.<span class="hljs-property">url</span>,<br>        <span class="hljs-attr">status</span>: res.<span class="hljs-property">status</span>,<br>        <span class="hljs-attr">code</span>: res.<span class="hljs-property">data</span>.<span class="hljs-property">code</span>,<br>        <span class="hljs-attr">message</span>: res.<span class="hljs-property">data</span>.<span class="hljs-property">message</span><br>      &#125;<br>      <br>      <span class="hljs-comment">// 请求成功</span><br>      <span class="hljs-keyword">if</span> (data.<span class="hljs-property">code</span> === <span class="hljs-number">200</span>) &#123;<br>        <span class="hljs-keyword">return</span> data<br>      &#125;<br>      <span class="hljs-comment">// 未登录或登录过期</span><br>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (data.<span class="hljs-property">code</span> === <span class="hljs-number">401</span>) &#123;<br>        <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">clear</span>()<br>        <span class="hljs-keyword">const</span> route = &#123;<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/login&#x27;</span><br>        &#125;<br>        router.<span class="hljs-title function_">replace</span>(route)<br>      &#125; <br>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!data?.<span class="hljs-property">code</span>) &#123;<br>        <span class="hljs-keyword">return</span> res<br>      &#125;<br>      <span class="hljs-comment">// 其它情况</span><br>      <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-title function_">showMessage</span>(error)<br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br>      &#125;<br>    &#125;,<br>    <span class="hljs-attr">responseInterceptorCatch</span>: <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">if</span> (!e.<span class="hljs-property">config</span>?.<span class="hljs-property">method</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span><br>      &#125;<br>      <span class="hljs-keyword">const</span> error = &#123;<br>        <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;error&#x27;</span>,<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;系统提示&#x27;</span>,<br>        <span class="hljs-attr">method</span>: e.<span class="hljs-property">config</span>.<span class="hljs-property">method</span>,<br>        <span class="hljs-attr">url</span>: e.<span class="hljs-property">config</span>.<span class="hljs-property">url</span>,<br>        <span class="hljs-attr">msg</span>: <span class="hljs-literal">undefined</span><br>      &#125;<br>      <span class="hljs-keyword">if</span> (e.<span class="hljs-property">response</span> &amp;&amp; e.<span class="hljs-property">response</span>.<span class="hljs-property">data</span> &amp;&amp; e.<span class="hljs-property">response</span>.<span class="hljs-property">msg</span>) &#123;<br>        error.<span class="hljs-property">msg</span> = e.<span class="hljs-property">response</span>.<span class="hljs-property">data</span>.<span class="hljs-property">msg</span>;<br>      &#125;<br>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (e.<span class="hljs-property">message</span>.<span class="hljs-title function_">includes</span>(<span class="hljs-string">&#x27;timeout&#x27;</span>) &amp;&amp; e.<span class="hljs-property">code</span> === <span class="hljs-string">&#x27;ECONNABORTED&#x27;</span>) &#123;<br>        error.<span class="hljs-property">msg</span> = e.<span class="hljs-property">message</span><br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        error.<span class="hljs-property">msg</span> = e.<span class="hljs-property">message</span><br>      &#125;<br>      <span class="hljs-title function_">showMessage</span>(error)<br>      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br>    &#125;<br>  &#125;<br>&#125;)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> request<br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue/" class="category-chain-item">vue</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/vue/vue-router/" class="category-chain-item">vue-router</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/vue-router/" class="print-no-link">#vue-router</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>vue-router-use</div>
+      <div>http://example.com/2023/10/26/vue-router-use/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Your294</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 26, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/24/sql-test/" title="sql_test">
+                        <span class="hidden-mobile">sql_test</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

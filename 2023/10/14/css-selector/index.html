@@ -16,15 +16,15 @@
   <meta name="author" content="Your294">
   <meta name="keywords" content="os,cpp,Java,sql">
   
-    <meta name="description" content="the sumary for CSS selector组合器 1234element element | div p | 选择 &lt;div&gt; 元素内的所有 &lt;p&gt; 元素element&gt;element | div &gt; p | 选择其父元素是 &lt;div&gt; 元素的所有 &lt;p&gt; 元素。element+element | div + p | 选择所有">
+    <meta name="description" content="the sumary for CSS selector选择器  属性选择器 12345678910111213141516a[title] &amp;#123;  ...&amp;#125;&#x2F;* 存在 href 属性并且属性值匹配&quot;https:&#x2F;&#x2F;example.org&quot;的 &lt;a&gt; 元素 *&#x2F;a[href&#x3D;&quot;https:&#x2F;&#x2F;example.org&quot;] &amp;#123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css_selector">
 <meta property="og:url" content="http://example.com/2023/10/14/css-selector/index.html">
 <meta property="og:site_name" content="Your294_Blog">
-<meta property="og:description" content="the sumary for CSS selector组合器 1234element element | div p | 选择 &lt;div&gt; 元素内的所有 &lt;p&gt; 元素element&gt;element | div &gt; p | 选择其父元素是 &lt;div&gt; 元素的所有 &lt;p&gt; 元素。element+element | div + p | 选择所有">
+<meta property="og:description" content="the sumary for CSS selector选择器  属性选择器 12345678910111213141516a[title] &amp;#123;  ...&amp;#125;&#x2F;* 存在 href 属性并且属性值匹配&quot;https:&#x2F;&#x2F;example.org&quot;的 &lt;a&gt; 元素 *&#x2F;a[href&#x3D;&quot;https:&#x2F;&#x2F;example.org&quot;] &amp;#123">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-14T08:24:06.000Z">
-<meta property="article:modified_time" content="2023-10-14T09:19:53.248Z">
+<meta property="article:modified_time" content="2023-10-26T03:07:03.581Z">
 <meta property="article:author" content="Your294">
 <meta property="article:tag" content="css">
 <meta property="article:tag" content="selector">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          660 words
+          1.3k words
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          6 mins
+          12 mins
         
       </span>
     
@@ -275,7 +275,17 @@
             
               <div class="markdown-body">
                 
-                <h1 id="the-sumary-for-CSS-selector"><a href="#the-sumary-for-CSS-selector" class="headerlink" title="the sumary for CSS selector"></a>the sumary for CSS selector</h1><p><strong>组合器</strong></p>
+                <h1 id="the-sumary-for-CSS-selector"><a href="#the-sumary-for-CSS-selector" class="headerlink" title="the sumary for CSS selector"></a>the sumary for CSS selector</h1><p><strong>选择器</strong></p>
+<ol>
+<li><p>属性选择器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[title]</span> &#123;<br>  ...<br>&#125;<br><span class="hljs-comment">/* 存在 href 属性并且属性值匹配&quot;https://example.org&quot;的 &lt;a&gt; 元素 */</span><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href=<span class="hljs-string">&quot;https://example.org&quot;</span>]</span> &#123;<br>  ....<br>&#125;<br><span class="hljs-comment">/* 存在 href 属性并且属性值包含&quot;example&quot;的 &lt;a&gt; 元素 */</span><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href*=<span class="hljs-string">&quot;example&quot;</span>]</span> &#123;<br>  ...<br>&#125;<br><br><span class="hljs-comment">/* 存在 class 属性并且属性值包含单词&quot;logo&quot;的&lt;a&gt;元素 */</span><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[class~=<span class="hljs-string">&quot;logo&quot;</span>]</span> &#123;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">2px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>!<em><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Attribute_selectors">官方说明</a></em></p>
+</li>
+<li><p>类选择器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 所有含有 class=&quot;spacious&quot; 类的元素 */</span><br><span class="hljs-selector-class">.spacious</span> &#123;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">2em</span>;<br>&#125;<br><br><span class="hljs-comment">/* 所有含有 class=&quot;spacious&quot; 类的 &lt;li&gt; 元素 */</span><br><span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.spacious</span> &#123;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">2em</span>;<br>&#125;<br><br><span class="hljs-comment">/* 所有同时含有“spacious”和“elegant”类的 &lt;li&gt; 元素 */</span><br><span class="hljs-comment">/* 例如 class=&quot;elegant retro spacious&quot; */</span><br><span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.spacious</span><span class="hljs-selector-class">.elegant</span> &#123;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">2em</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>!<em><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Class_selectors">官方说明</a></em></p>
+<p><strong>组合器</strong></p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">element element | div p | 选择 &lt;div&gt; 元素内的所有 &lt;p&gt; 元素<br>element&gt;element | div &gt; p | 选择其父元素是 &lt;div&gt; 元素的所有 &lt;p&gt; 元素。<br>element+element | div + p | 选择所有紧随 &lt;div&gt; 元素之后的 &lt;p&gt; 元素。（一般就一个）<br>element1~element2 | p ~ ul | 选择&lt;ul&gt;要求前面有 &lt;p&gt; <br></code></pre></td></tr></table></figure>
 
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-class">.page-layout</span>,<br><span class="hljs-selector-class">.ant-layout</span> &#123;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">overflow-x</span>: hidden;<br>&#125;<br><br><span class="hljs-selector-class">.layout-content</span> &#123;<br>  <span class="hljs-attribute">overflow-y</span>: scroll;<br>  <span class="hljs-comment">/* use &amp; to ref `.layout-content` and `::` is 伪元素选择器 */</span><br>  <span class="hljs-selector-tag">&amp;</span>::<span class="hljs-selector-tag">-webkit-scrollbar</span> &#123;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">8px</span>;<br>  &#125;<br><br>  <span class="hljs-selector-tag">&amp;</span>::<span class="hljs-selector-tag">-webkit-scrollbar-track</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#e9e9e9e9</span>;<br>  &#125;<br><br>  <span class="hljs-selector-tag">&amp;</span>::<span class="hljs-selector-tag">-webkit-scrollbar-thumb</span> &#123;<br>    <span class="hljs-attribute">background</span>: <span class="hljs-number">#ccc</span>;<br>    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">25px</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
