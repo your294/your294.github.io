@@ -24,7 +24,7 @@
 <meta property="og:description" content="lib-store参考别人做的网盘项目 front前端设计考量vue4 + ant-design-vue + axios + vuex-src    -assets (静态资源)    -configs (少量配置index.js)    -layout (基础布局组件)    -router (index.js 处理路由的一些逻辑)    -routes (index.js 处理路由到哪里去)r">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-26T12:16:49.000Z">
-<meta property="article:modified_time" content="2023-10-26T12:32:02.337Z">
+<meta property="article:modified_time" content="2023-10-27T02:11:15.671Z">
 <meta property="article:author" content="Your294">
 <meta property="article:tag" content="lib-store">
 <meta property="article:tag" content="vue">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          436 words
+          787 words
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          4 mins
+          7 mins
         
       </span>
     
@@ -277,6 +277,12 @@
                 
                 <h1 id="lib-store"><a href="#lib-store" class="headerlink" title="lib-store"></a>lib-store</h1><p>参考别人做的网盘项目</p>
 <h2 id="front"><a href="#front" class="headerlink" title="front"></a>front</h2><p>前端设计考量<br>vue4 + ant-design-vue + axios + vuex<br>-src<br>    -assets (静态资源)<br>    -configs (少量配置index.js)<br>    -layout (基础布局组件)<br>    -router (index.js 处理路由的一些逻辑)<br>    -routes (index.js 处理路由到哪里去)routerMap<br>    -service (前后端交互服务和<strong>http拦截器</strong>)<br>        -modules (这里类似与后端的MVC也将前端的服务单独抽象出来，包括注册登录查验等操作统一进行了接口设计)<br>        -index.js (这里实现了<strong>http拦截器</strong>)<br>    -store (vuex)<br>        -modules (分模块区别了不同模块的vuex状态)<br>        -index.js<br>    -views (这里是具体的vue界面组件)</p>
+<h3 id="important-service-and-store"><a href="#important-service-and-store" class="headerlink" title="important service and store"></a>important service and store</h3><p><strong>service主要是为了向store提供服务原因在于我们变更源数据都要通过store.dispatch来进行此处要提供如何变更的函数以及入参</strong><br><strong>store.dispatch 也会返回promise适用于then的处理</strong></p>
+<h3 id="前端细节项目结构"><a href="#前端细节项目结构" class="headerlink" title="前端细节项目结构"></a>前端细节项目结构</h3><ol>
+<li>store.dispatch(‘funcName’, args…)都在@store文件夹的modules下面</li>
+<li>因为在路由到用户界面时，<strong>需要先对用户的身份进行校验</strong>，在这之前会需要得到用户的一系列具体信息，<br>主要是用户名，因为该project的用户名都是唯一的, 本来在从cookie中获得了用户名之后，还要从后台查询到<br>具体的intro和profile（头像）等信息，这里还没做, 所以这里在<font color='green'><strong>router.js</strong></font>那里有一些对于<strong>vuex</strong>的状态修改</li>
+<li></li>
+</ol>
 <h2 id="backend"><a href="#backend" class="headerlink" title="backend"></a>backend</h2><p>经典mvc的模式<br>dao 用于和数据库交互<br>bean 实体类<br>dto 传递数据<br>service 向controller提供服务接口<br>controller 向前端提供服务<br>ps: <strong>记得处理跨域</strong></p>
 
                 
@@ -385,6 +391,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/10/27/vuex-vue4-use/" title="vuex-vue4-use">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">vuex-vue4-use</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
