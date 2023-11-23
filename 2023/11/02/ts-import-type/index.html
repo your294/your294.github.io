@@ -16,15 +16,15 @@
   <meta name="author" content="Your294">
   <meta name="keywords" content="os,cpp,Java,sql">
   
-    <meta name="description" content="ts import type vs importimport和import type都可以导入一个类型或一个值, 但是使用import type导入的值, 只能在类型的上下文中使用, 不能作为值使用，也无法extends继承。import导入的就按照原本的意义使用即可。">
+    <meta name="description" content="ts import type vs importimport和import type都可以导入一个类型或一个值, 但是使用import type导入的值, 只能在类型的上下文中使用, 不能作为值使用，也无法extends继承。import导入的就按照原本的意义使用即可。 123456789101112131415161718192021&#x2F;&#x2F;tsconfig.app.json&amp;#123;  &amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ts_import_type">
 <meta property="og:url" content="http://example.com/2023/11/02/ts-import-type/index.html">
 <meta property="og:site_name" content="Your294_Blog">
-<meta property="og:description" content="ts import type vs importimport和import type都可以导入一个类型或一个值, 但是使用import type导入的值, 只能在类型的上下文中使用, 不能作为值使用，也无法extends继承。import导入的就按照原本的意义使用即可。">
+<meta property="og:description" content="ts import type vs importimport和import type都可以导入一个类型或一个值, 但是使用import type导入的值, 只能在类型的上下文中使用, 不能作为值使用，也无法extends继承。import导入的就按照原本的意义使用即可。 123456789101112131415161718192021&#x2F;&#x2F;tsconfig.app.json&amp;#123;  &amp;quo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-11-02T03:50:14.000Z">
-<meta property="article:modified_time" content="2023-11-02T09:11:33.848Z">
+<meta property="article:modified_time" content="2023-11-23T12:32:01.144Z">
 <meta property="article:author" content="Your294">
 <meta property="article:tag" content="ts">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          126 words
+          881 words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          2 mins
+          8 mins
         
       </span>
     
@@ -274,6 +274,7 @@
               <div class="markdown-body">
                 
                 <h2 id="ts-import-type-vs-import"><a href="#ts-import-type-vs-import" class="headerlink" title="ts import type vs import"></a>ts import type vs import</h2><p><code>import</code>和<code>import type</code>都可以导入一个类型或一个值, 但是使用<code>import type</code><br>导入的值, 只能在类型的上下文中使用, 不能作为值使用，也无法extends继承。<br><code>import</code>导入的就按照原本的意义使用即可。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">//tsconfig.app.json</span><br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;extends&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;@vue/tsconfig/tsconfig.dom.json&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;include&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;env.d.ts&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;src/**/*&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;src/**/*.vue&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;src/**/*.ts&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;exclude&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;src/**/__tests__/*&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;compilerOptions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;composite&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>     <span class="hljs-comment">/*</span><br><span class="hljs-comment">     * 模块解析策略，ts默认用node的解析策略，即相对的方式导入, 可选值：node、classic</span><br><span class="hljs-comment">     * 如果未指定，则 --module commonjs 默认为 node，否则默认为 classic（包括 --module 设置为 amd、system、umd、es2015、esnext 等）</span><br><span class="hljs-comment">     * Node 模块解析是 TypeScript 社区中最常用的，推荐用于大多数项目。 </span><br><span class="hljs-comment">     * 如果您在 TypeScript 中遇到导入和导出的解析问题，请尝试设置 moduleResolution: “node” 以查看它是否解决了问题。</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-attr">&quot;moduleResolution&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;node&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;baseUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;.&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;paths&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;@/*&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;./src/*&quot;</span><span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br><br></code></pre></td></tr></table></figure>
 
                 
               </div>
