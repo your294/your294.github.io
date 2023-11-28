@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>vue-event-use</title>
+    <link href="/2023/11/28/vue-event-use/"/>
+    <url>/2023/11/28/vue-event-use/</url>
+    
+    <content type="html"><![CDATA[<h2 id="vue中事件的使用"><a href="#vue中事件的使用" class="headerlink" title="vue中事件的使用"></a>vue中事件的使用</h2><p>主要用于父子组件传递动作</p><h4 id="语法格式如下"><a href="#语法格式如下" class="headerlink" title="语法格式如下"></a>语法格式如下</h4><h5 id="父组件"><a href="#父组件" class="headerlink" title="父组件"></a>父组件</h5><p><code>@event-name="handle-func"</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;Content&gt;<br>        &lt;!-- give a layout --&gt;<br>        &lt;div class=&quot;row&quot;&gt;<br>            &lt;div class=&quot;col-3&quot;&gt;<br>                &lt;UserInfo @follow=&quot;followFunc&quot; @unfollow=&quot;unfollowFunc&quot; :user=&quot;user&quot;/&gt;<br>            &lt;/div&gt;<br>            &lt;div class=&quot;col-9&quot;&gt;<br>                &lt;UserPost/&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/Content&gt;<br>    <br><br>&lt;/template&gt;<br></code></pre></td></tr></table></figure><h5 id="子组件"><a href="#子组件" class="headerlink" title="子组件"></a>子组件</h5><p>需要使用defineEmits和emit2个api</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ts"><br>&lt;button v-<span class="hljs-keyword">if</span>=<span class="hljs-string">&quot;!user?.user?.is_followed&quot;</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">&quot;button&quot;</span> id=<span class="hljs-string">&quot;focus-btn&quot;</span> <br>        <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-secondary btn-sm focus-button&quot;</span> <span class="hljs-meta">@click</span>=<span class="hljs-string">&quot;btnToFocus&quot;</span>&gt;+关注&lt;/button&gt;<br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-else</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-secondary btn-sm&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;btnNoFocus&quot;</span>&gt;</span>已关注<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="hljs-keyword">const</span> emit = <span class="hljs-title function_">defineEmits</span>([<span class="hljs-string">&quot;follow&quot;</span>, <span class="hljs-string">&quot;unfollow&quot;</span>])<br><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">btnToFocus</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-title function_">emit</span>(<span class="hljs-string">&quot;follow&quot;</span>);<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">btnNoFocus</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-title function_">emit</span>(<span class="hljs-string">&quot;unfollow&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>event</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vue_export_default</title>
     <link href="/2023/11/23/vue-export-default/"/>
     <url>/2023/11/23/vue-export-default/</url>
@@ -378,11 +405,11 @@
     
     <tags>
       
+      <tag>springboot</tag>
+      
       <tag>lib-store</tag>
       
       <tag>vue</tag>
-      
-      <tag>springboot</tag>
       
     </tags>
     
