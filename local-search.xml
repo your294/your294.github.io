@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>git-change-branch</title>
+    <link href="/2023/12/05/git-change-branch/"/>
+    <url>/2023/12/05/git-change-branch/</url>
+    
+    <content type="html"><![CDATA[<h2 id="git-change-branch"><a href="#git-change-branch" class="headerlink" title="git-change-branch"></a>git-change-branch</h2><h3 id="git-分支基本操作"><a href="#git-分支基本操作" class="headerlink" title="git 分支基本操作"></a>git 分支基本操作</h3><h6 id="创建并切换分支"><a href="#创建并切换分支" class="headerlink" title="创建并切换分支"></a>创建并切换分支</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git checkout -b dev</span><br></code></pre></td></tr></table></figure><p>as same as</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git branch dev</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git checkout dev</span><br></code></pre></td></tr></table></figure><h6 id="查看当前分支"><a href="#查看当前分支" class="headerlink" title="查看当前分支"></a>查看当前分支</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git branch</span><br></code></pre></td></tr></table></figure><h6 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h6><p>即将一个分支上的工作成果合并到另一个分支上面</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git merge dev</span><br>Updating d46f35e..b17d20e<br>Fast-forward<br> readme.txt | 1 +<br> 1 file changed, 1 insertion(+)<br></code></pre></td></tr></table></figure><p>Fast-forward 直接将<code>master</code>指针指向<code>dev</code></p><h6 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git branch -d dev<br></code></pre></td></tr></table></figure><h4 id="Advice"><a href="#Advice" class="headerlink" title="Advice"></a>Advice</h4><p>PS: <strong>因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。</strong></p><h3 id="分支switch"><a href="#分支switch" class="headerlink" title="分支switch"></a>分支switch</h3><p><code>git checkout <code>&lt;branch&gt;</code></code>，而撤销修改是<code>git checkout -- <code>&lt;file&gt;</code></code><br>最新版本的git支持<code>git switch</code>, 不过本人这个不支持。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+      <tag>change branch</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vue-pinia-use</title>
+    <link href="/2023/12/01/vue-pinia-use/"/>
+    <url>/2023/12/01/vue-pinia-use/</url>
+    
+    <content type="html"><![CDATA[<h2 id="the-basic-use-of-pinia-with-vue"><a href="#the-basic-use-of-pinia-with-vue" class="headerlink" title="the basic use of pinia with vue"></a>the basic use of pinia with vue</h2><h4 id="State"><a href="#State" class="headerlink" title="State"></a>State</h4><h5 id="statement"><a href="#statement" class="headerlink" title="statement"></a>statement</h5><p>the attr <code><code>state</code></code> must be a arrow function</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Javascript"><span class="hljs-keyword">import</span> &#123; defineStore &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;pinia&#x27;</span><br><br><span class="hljs-keyword">export</span> useUserStore = <span class="hljs-title function_">defineStore</span>(<span class="hljs-string">&#x27;storeId&#x27;</span>, &#123;<br>    <span class="hljs-attr">state</span>: <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-keyword">return</span> &#123;<br>            <span class="hljs-attr">att1</span>: <span class="hljs-number">0</span>,<br>            <span class="hljs-attr">att2</span>: <span class="hljs-string">&quot;&quot;</span>,<br>        &#125;<br>    &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure><h5 id="accessing-state"><a href="#accessing-state" class="headerlink" title="accessing state"></a>accessing state</h5><p><strong>directing into the state</strong><br>In the store module</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">this</span>.<span class="hljs-property">attr1</span>++;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">attr2</span>++;<br></code></pre></td></tr></table></figure><p>In the other vue components</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store = <span class="hljs-title function_">useUserStore</span>();<br>store.<span class="hljs-property">attr1</span>++;<br>store.<span class="hljs-property">attr2</span>++;<br></code></pre></td></tr></table></figure><p><strong>use $patch api</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">store.$patch(&#123;<br>  <span class="hljs-attr">count</span>: store.<span class="hljs-property">count</span> + <span class="hljs-number">1</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-number">120</span>,<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;DIO&#x27;</span>,<br>&#125;)<br></code></pre></td></tr></table></figure><h4 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h4><p>Getters just like computed in vue<br>the attrs of gettes must be function or arrow function</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useStore = <span class="hljs-title function_">defineStore</span>(<span class="hljs-string">&#x27;main&#x27;</span>, &#123;<br>  <span class="hljs-attr">getters</span>: &#123;<br>    <span class="hljs-attr">getUserById</span>: <span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">userId</span>) =&gt;</span> state.<span class="hljs-property">users</span>.<span class="hljs-title function_">find</span>(<span class="hljs-function">(<span class="hljs-params">user</span>) =&gt;</span> user.<span class="hljs-property">id</span> === userId)<br>    &#125;,<br>  &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure><p>in other vue components</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script setup&gt;<br><span class="hljs-keyword">const</span> store = <span class="hljs-title function_">useCounterStore</span>()<br><br>store.<span class="hljs-property">count</span> = <span class="hljs-number">3</span><br>store.<span class="hljs-property">doubleCount</span> <span class="hljs-comment">// 6</span><br>&lt;/script&gt;<br></code></pre></td></tr></table></figure><h4 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h4><p><strong>in <code>Actions</code> you can do every thing, even async and await (not in vuex), you can define the function to change the state in there</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounterStore = <span class="hljs-title function_">defineStore</span>(<span class="hljs-string">&#x27;counter&#x27;</span>, &#123;<br>  <span class="hljs-attr">state</span>: <span class="hljs-function">() =&gt;</span> (&#123;<br>    <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>,<br>  &#125;),<br>  <span class="hljs-attr">actions</span>: &#123;<br>    <span class="hljs-comment">// since we rely on `this`, we cannot use an arrow function</span><br>    <span class="hljs-title function_">increment</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">count</span>++<br>    &#125;,<br>    <span class="hljs-title function_">randomizeCounter</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">count</span> = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">round</span>(<span class="hljs-number">100</span> * <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>())<br>    &#125;,<br>  &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure><h4 id="Module-with-project"><a href="#Module-with-project" class="headerlink" title="Module with project"></a>Module with project</h4>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>pinia</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vue-event-use</title>
     <link href="/2023/11/28/vue-event-use/"/>
     <url>/2023/11/28/vue-event-use/</url>
@@ -405,11 +459,11 @@
     
     <tags>
       
-      <tag>springboot</tag>
+      <tag>vue</tag>
       
       <tag>lib-store</tag>
       
-      <tag>vue</tag>
+      <tag>springboot</tag>
       
     </tags>
     

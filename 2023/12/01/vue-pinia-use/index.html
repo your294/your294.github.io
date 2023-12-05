@@ -16,23 +16,23 @@
   <meta name="author" content="Your294">
   <meta name="keywords" content="os,cpp,Java,sql">
   
-    <meta name="description" content="vue中事件的使用主要用于父子组件传递动作 语法格式如下父组件@event-name&#x3D;&quot;handle-func&quot; 123456789101112131415&lt;template&gt;    &lt;Content&gt;        &lt;!-- give a layout --&gt;        &lt;div class&#x3D;&quot;row&quot;&gt;">
+    <meta name="description" content="the basic use of pinia with vueStatestatementthe attr state must be a arrow function 12345678910import &amp;#123; defineStore &amp;#125; from &amp;#x27;pinia&amp;#x27;export useUserStore &#x3D; defineStore(&amp;#x27;storeId&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue-event-use">
-<meta property="og:url" content="http://example.com/2023/11/28/vue-event-use/index.html">
+<meta property="og:title" content="vue-pinia-use">
+<meta property="og:url" content="http://example.com/2023/12/01/vue-pinia-use/index.html">
 <meta property="og:site_name" content="Your294_Blog">
-<meta property="og:description" content="vue中事件的使用主要用于父子组件传递动作 语法格式如下父组件@event-name&#x3D;&quot;handle-func&quot; 123456789101112131415&lt;template&gt;    &lt;Content&gt;        &lt;!-- give a layout --&gt;        &lt;div class&#x3D;&quot;row&quot;&gt;">
+<meta property="og:description" content="the basic use of pinia with vueStatestatementthe attr state must be a arrow function 12345678910import &amp;#123; defineStore &amp;#125; from &amp;#x27;pinia&amp;#x27;export useUserStore &#x3D; defineStore(&amp;#x27;storeId&amp;#">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-11-28T07:54:36.000Z">
-<meta property="article:modified_time" content="2023-11-28T07:58:07.738Z">
+<meta property="article:published_time" content="2023-12-01T08:34:28.000Z">
+<meta property="article:modified_time" content="2023-12-01T08:52:53.325Z">
 <meta property="article:author" content="Your294">
 <meta property="article:tag" content="vue">
-<meta property="article:tag" content="event">
+<meta property="article:tag" content="pinia">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>vue-event-use - Your294_Blog</title>
+  <title>vue-pinia-use - Your294_Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="vue-event-use"></span>
+            <span id="subtitle" data-typed-text="vue-pinia-use"></span>
           
         </div>
 
@@ -209,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-28 15:54" pubdate>
-          November 28, 2023 pm
+        <time datetime="2023-12-01 16:34" pubdate>
+          December 1, 2023 pm
         </time>
       </span>
     
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          978 words
+          1.3k words
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          9 mins
+          12 mins
         
       </span>
     
@@ -269,18 +269,29 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">vue-event-use</h1>
+            <h1 id="seo-header">vue-pinia-use</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="vue中事件的使用"><a href="#vue中事件的使用" class="headerlink" title="vue中事件的使用"></a>vue中事件的使用</h2><p>主要用于父子组件传递动作</p>
-<h4 id="语法格式如下"><a href="#语法格式如下" class="headerlink" title="语法格式如下"></a>语法格式如下</h4><h5 id="父组件"><a href="#父组件" class="headerlink" title="父组件"></a>父组件</h5><p><code>@event-name="handle-func"</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;Content&gt;<br>        &lt;!-- give a layout --&gt;<br>        &lt;div class=&quot;row&quot;&gt;<br>            &lt;div class=&quot;col-3&quot;&gt;<br>                &lt;UserInfo @follow=&quot;followFunc&quot; @unfollow=&quot;unfollowFunc&quot; :user=&quot;user&quot;/&gt;<br>            &lt;/div&gt;<br>            &lt;div class=&quot;col-9&quot;&gt;<br>                &lt;UserPost/&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/Content&gt;<br>    <br><br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+                <h2 id="the-basic-use-of-pinia-with-vue"><a href="#the-basic-use-of-pinia-with-vue" class="headerlink" title="the basic use of pinia with vue"></a>the basic use of pinia with vue</h2><h4 id="State"><a href="#State" class="headerlink" title="State"></a>State</h4><h5 id="statement"><a href="#statement" class="headerlink" title="statement"></a>statement</h5><p>the attr <code><code>state</code></code> must be a arrow function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Javascript"><span class="hljs-keyword">import</span> &#123; defineStore &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;pinia&#x27;</span><br><br><span class="hljs-keyword">export</span> useUserStore = <span class="hljs-title function_">defineStore</span>(<span class="hljs-string">&#x27;storeId&#x27;</span>, &#123;<br>    <span class="hljs-attr">state</span>: <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-keyword">return</span> &#123;<br>            <span class="hljs-attr">att1</span>: <span class="hljs-number">0</span>,<br>            <span class="hljs-attr">att2</span>: <span class="hljs-string">&quot;&quot;</span>,<br>        &#125;<br>    &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure>
 
-<h5 id="子组件"><a href="#子组件" class="headerlink" title="子组件"></a>子组件</h5><p>需要使用defineEmits和emit2个api</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ts"><br>&lt;button v-<span class="hljs-keyword">if</span>=<span class="hljs-string">&quot;!user?.user?.is_followed&quot;</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">&quot;button&quot;</span> id=<span class="hljs-string">&quot;focus-btn&quot;</span> <br>        <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-secondary btn-sm focus-button&quot;</span> <span class="hljs-meta">@click</span>=<span class="hljs-string">&quot;btnToFocus&quot;</span>&gt;+关注&lt;/button&gt;<br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-else</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-secondary btn-sm&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;btnNoFocus&quot;</span>&gt;</span>已关注<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="hljs-keyword">const</span> emit = <span class="hljs-title function_">defineEmits</span>([<span class="hljs-string">&quot;follow&quot;</span>, <span class="hljs-string">&quot;unfollow&quot;</span>])<br><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">btnToFocus</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-title function_">emit</span>(<span class="hljs-string">&quot;follow&quot;</span>);<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">btnNoFocus</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-title function_">emit</span>(<span class="hljs-string">&quot;unfollow&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="accessing-state"><a href="#accessing-state" class="headerlink" title="accessing state"></a>accessing state</h5><p><strong>directing into the state</strong><br>In the store module</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">this</span>.<span class="hljs-property">attr1</span>++;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">attr2</span>++;<br></code></pre></td></tr></table></figure>
+<p>In the other vue components</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> store = <span class="hljs-title function_">useUserStore</span>();<br>store.<span class="hljs-property">attr1</span>++;<br>store.<span class="hljs-property">attr2</span>++;<br></code></pre></td></tr></table></figure>
+<p><strong>use $patch api</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">store.$patch(&#123;<br>  <span class="hljs-attr">count</span>: store.<span class="hljs-property">count</span> + <span class="hljs-number">1</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-number">120</span>,<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;DIO&#x27;</span>,<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h4 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h4><p>Getters just like computed in vue<br>the attrs of gettes must be function or arrow function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useStore = <span class="hljs-title function_">defineStore</span>(<span class="hljs-string">&#x27;main&#x27;</span>, &#123;<br>  <span class="hljs-attr">getters</span>: &#123;<br>    <span class="hljs-attr">getUserById</span>: <span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">userId</span>) =&gt;</span> state.<span class="hljs-property">users</span>.<span class="hljs-title function_">find</span>(<span class="hljs-function">(<span class="hljs-params">user</span>) =&gt;</span> user.<span class="hljs-property">id</span> === userId)<br>    &#125;,<br>  &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure>
 
+<p>in other vue components</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script setup&gt;<br><span class="hljs-keyword">const</span> store = <span class="hljs-title function_">useCounterStore</span>()<br><br>store.<span class="hljs-property">count</span> = <span class="hljs-number">3</span><br>store.<span class="hljs-property">doubleCount</span> <span class="hljs-comment">// 6</span><br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<h4 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h4><p><strong>in <code>Actions</code> you can do every thing, even async and await (not in vuex), you can define the function to change the state in there</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounterStore = <span class="hljs-title function_">defineStore</span>(<span class="hljs-string">&#x27;counter&#x27;</span>, &#123;<br>  <span class="hljs-attr">state</span>: <span class="hljs-function">() =&gt;</span> (&#123;<br>    <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>,<br>  &#125;),<br>  <span class="hljs-attr">actions</span>: &#123;<br>    <span class="hljs-comment">// since we rely on `this`, we cannot use an arrow function</span><br>    <span class="hljs-title function_">increment</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">count</span>++<br>    &#125;,<br>    <span class="hljs-title function_">randomizeCounter</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">count</span> = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">round</span>(<span class="hljs-number">100</span> * <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>())<br>    &#125;,<br>  &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h4 id="Module-with-project"><a href="#Module-with-project" class="headerlink" title="Module with project"></a>Module with project</h4>
                 
               </div>
             
@@ -315,7 +326,7 @@
       
         <a href="/tags/vue/" class="print-no-link">#vue</a>
       
-        <a href="/tags/event/" class="print-no-link">#event</a>
+        <a href="/tags/pinia/" class="print-no-link">#pinia</a>
       
     </div>
   
@@ -327,8 +338,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vue-event-use</div>
-      <div>http://example.com/2023/11/28/vue-event-use/</div>
+      <div>vue-pinia-use</div>
+      <div>http://example.com/2023/12/01/vue-pinia-use/</div>
     </div>
     <div class="license-meta">
       
@@ -340,7 +351,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 28, 2023</div>
+          <div>December 1, 2023</div>
         </div>
       
       
@@ -372,9 +383,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/01/vue-pinia-use/" title="vue-pinia-use">
+                      <a href="/2023/12/05/git-change-branch/" title="git-change-branch">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue-pinia-use</span>
+                        <span class="hidden-mobile">git-change-branch</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -382,8 +393,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/23/vue-export-default/" title="vue_export_default">
-                        <span class="hidden-mobile">vue_export_default</span>
+                      <a href="/2023/11/28/vue-event-use/" title="vue-event-use">
+                        <span class="hidden-mobile">vue-event-use</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
